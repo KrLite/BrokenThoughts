@@ -27,23 +27,23 @@ AnnotationClass {
 
 ### @Documented
 
-`@Documented`注解用于指定注解类是否被Javadoc显示。若注解类没有被`@Documented`注解，则在Javadoc中不会显示该注解类。
+`@Documented` 注解用于指定注解类是否被Javadoc显示。若注解类没有被 `@Documented` 注解，则在Javadoc中不会显示该注解类。
 
 ### @Inherited
 
-`@Inherited`注解用于指定注解类是否允许子类继承父类的注解。若注解类没有被`@Inherited`注解，则子类不会继承父类的注解。
+`@Inherited` 注解用于指定注解类是否允许子类继承父类的注解。若注解类没有被 `@Inherited` 注解，则子类不会继承父类的注解。
 
 ### @Target
 
-`@Target`注解用于指定注解类的类型属性。若注解类没有被`@Target`注解，则可以用于任何地方。
+`@Target` 注解用于指定注解类的类型属性。若注解类没有被 `@Target` 注解，则可以用于任何地方。
 
-括号中的内容可以为[`ElementType.class ↗`](ElementType.class.md)中的枚举常量。
+括号中的内容可以为 [`ElementType.class ↗`](ElementType.class.md) 中的枚举常量。
 
 ### @Retention
 
-`@Retention`注解用于指定注解类的策略属性。若注解类没有被`@Retention`注解，则默认为`RetentionPolicy.CLASS`。
+`@Retention` 注解用于指定注解类的策略属性。若注解类没有被 `@Retention` 注解，则默认为 `RetentionPolicy.CLASS` 。
 
-括号中的内容可以为[`RetentionPolicy.class ↗`](RetentionPolicy.class.md)中的枚举常量。
+括号中的内容可以为 [`RetentionPolicy.class ↗`](RetentionPolicy.class.md) 中的枚举常量。
 
 ## 2. 注解的使用
 
@@ -64,9 +64,9 @@ public @interface MyAnnotation {
 }
 ```
 
-它包含了两个返回值为字符串的方法，分别是没有默认值的`name()`和有默认值`Hello`的`message()`。
+它包含了两个返回值为字符串的方法，分别是没有默认值的 `name()` 和有默认值 `Hello` 的 `message()` 。
 
-因为使用了`Target`注解，并且限定目标为`METHOD`，所以我们只能在方法声明时使用它。
+因为使用了 `Target` 注解，并且限定了目标为 `ElementType.METHOD` ，所以我们只能在方法声明时使用它。
 
 下面为使用示例：
 
