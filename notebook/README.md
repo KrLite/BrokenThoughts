@@ -2,4 +2,4 @@
 
 ## [Java](/java)
 
-> [注解（Annotations）](/java/annotations/annotation.md)
+> [注解（Annotation）](/java/annotation/annotation.md)
