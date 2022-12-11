@@ -1,4 +1,4 @@
-# Annotation / 注解
+# <p align=left>[← Java](/notebook)</p> <p align=left>Annotation / 注解</p>
 
 `JDK 5.0`
 
