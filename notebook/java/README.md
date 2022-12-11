@@ -2,4 +2,4 @@
 
 ## 类
 
-> [注解（Annotation）](/notebook/java/annotation/annotation.md)
+> [注解（Annotation）](annotation/annotation.md)
