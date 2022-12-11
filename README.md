@@ -1,6 +1,6 @@
 # BrokenThoughts / 碎碎念
 
-Home for My Broken Thoughts.
+`> ω <`
 
 在这里，你可以找到：
 
