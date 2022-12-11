@@ -1,4 +1,4 @@
-# <p align=left>[`←` 学习笔记](/notebook)</p> <p align=left>Java</p>
+# [`←` 学习笔记](/notebook) &nbsp; Java
 
 ## 类
 
