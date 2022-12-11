@@ -1,4 +1,4 @@
-# [`←` 学习笔记](/notebook) &nbsp; Java
+# [`←`](/notebook) &nbsp; Java
 
 ## 类
 
