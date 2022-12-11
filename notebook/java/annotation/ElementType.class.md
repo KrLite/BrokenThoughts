@@ -4,7 +4,7 @@ package java.lang.annotation;
 
 # ElementType.class
 
-`ElementType.class`是一个枚举类，存储了用于定义[注释 ↗](annotation.md)类型属性的枚举常量。
+`ElementType.class`是一个枚举类，存储了用于定义[注解](annotation.md)类型属性的枚举常量。
 
 ## 枚举常量
 
