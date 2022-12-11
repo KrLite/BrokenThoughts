@@ -2,4 +2,4 @@
 
 ## 类
 
-> [`注解` `Annotation`](annotation)
+> [注解`Annotation`](annotation)
