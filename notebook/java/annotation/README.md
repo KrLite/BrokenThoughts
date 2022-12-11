@@ -45,7 +45,7 @@ AnnotationClass {
 
 括号中的内容可以为[`RetentionPolicy.class ↗`](RetentionPolicy.class.md)中的枚举常量。
 
-## 2. 注解的作用
+## 2. 注解的使用
 
 ### 1. 编译检查
 
