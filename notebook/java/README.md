@@ -1,5 +1,5 @@
 # <p align=left><sub>[`←` 学习笔记](/notebook)</sub></p> <p align=left>Java</p>
 
-## 类
+## 类 `Class`
 
-> [注解`Annotation`](annotation)
+> [注解 `Annotation`](annotation)
