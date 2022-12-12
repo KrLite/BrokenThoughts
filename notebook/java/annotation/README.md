@@ -56,7 +56,7 @@ public class MyClass {
 	@Deprecated // 标注这个方法被弃用了，即不建议调用此方法。
 	@SuppressWarnings("unchecked") // 隐藏"unchecked"错误。
 	public static void method() { // 假设这个方法会报"unchecked"错误，那么这个错误会被隐藏。
-        foo.bar1();
+		foo.bar1();
 		foo.bar2();
     }
 }
