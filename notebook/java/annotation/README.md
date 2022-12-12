@@ -150,7 +150,7 @@ class TestObj {
 	private final String field2 = "This is a string.";
 
 	// 为field3添加了@FieldInfo注解，但同时也添加了@Silent注解，所以这个字段不应该在反射时被访问。
-    // 这个字段的@Silent注解就是添加在返回类型前的。不过依照我们的代码，它的效果与在字段前添加@Silent注解是相同的。
+    	// 这个字段的@Silent注解就是添加在返回类型前的。不过依照我们的代码，它的效果与在字段前添加@Silent注解是相同的。
 	public final @Silent String field3 = "A special field that should not be printed.";
 }
 ```
