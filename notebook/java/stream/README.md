@@ -27,7 +27,7 @@
 - `管道流` 中间操作都会返回流对象本身。这样一来，多个操作就可以串联成一个管道。这可以方便地对操作进行优化，比如延迟执行[^延迟执行]和短路[^短路]。
 - `内部迭代` 以前对集合遍历都是通过 `Iterator` 或 `For-Each` 的方式，以外部迭代方式显式地在集合外部进行迭代。而流式操作则通过访问者模式[^访问者模式]实现了内部迭代。
 
-[^延迟执行]: Laziness，又称惰性化。延迟执行是指在需要结果的时候才执行。
+[^延迟执行]: Lazy Evaluation / Laziness，又称惰性化。延迟执行的方法在调用时不会立即执行，而是在需要结果时才执行。
 
 [^短路]: Short-circuiting。短路是指在不需要处理所有元素的情况下就可以结束对元素的处理。
 
@@ -63,23 +63,27 @@ List<String> result = days.stream() // 将集合转换为流。
 
 上述例子中的 `filter` 操作会返回一个新的流，其中包含了不是星期一的元素。这个新的流可以继续进行其他操作，比如 `map` `sorted` 等。
 
-为流中的元素进行筛选时，最后使用 `lambda语法` 。如果你对这种写法感到陌生，可以去看看我的Lambda表达式学习笔记。
+为流中的元素进行筛选时，推荐使用 `Lambda表达式` 。如果你对这种写法感到陌生，可以去看看我的学习笔记。
 
-当然，你可以用Lambda表达式实现更多的筛选操作，比如：
+当然，你可以用 `Lambda表达式` 实现更多的筛选操作，比如：
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
 List<Integer> result = number.stream()
         .filter(number -> number % 2 == 0) // 筛选出偶数。
         .filter(number -> number > 5) // 筛选出大于5的数。
-        .collect(Collectors.toList()); // 显而易见，result数组的元素只有6和8。
+        .collect(Collectors.toList()); // 显而易见，result的元素只有6和8。
 ```
 
-#### 映射 `map`
+#### 映射 `map` `flatMap`
 
-映射操作可以将流中的每一个元素分别加工处理、映射为另一个元素，并组成新的流。
+映射操作可以将流中的元素映射为另一种形式或内容，形成新的流。
 
-一个简单的示例是将字符串数组中的每个字符串转换为大写：
+##### 简单映射 `map`
+
+简单映射操作可以将流中的每一个元素分别加工处理、映射为另一个元素，并组成新的流。
+
+一个简单的示例是将流中的每个字符串转换为大写：
 
 ```java
 List<String> days = Arrays.asList("Saturday", "Sunday", "Monday");
@@ -97,11 +101,11 @@ List<Integer> result = names.stream()
         .collect(Collectors.toList()); // 结果为：[3, 5, 4]。
 ```
 
-#### 扁平化映射 `flatMap`
+##### 扁平化映射 `flatMap`
 
-扁平化映射操作可以将多个流中的每一个元素分别处理，并将所有流合并为一个流。
+扁平化映射操作可以将多个流中的每一个元素分别处理，并将所有流合并为一个流，例如将 `Stream<Stream<E>>` 合并为 `Stream<E>` 。
 
-简而言之，你可以将它视为针对多维数组的映射操作。
+简而言之，你可以将它视为针对多维数组的简单映射操作，或是汇聚零碎流的操作。
 
 ```java
 List<Integer> numbers1 = Arrays.asList(1, 2, 3);
@@ -180,7 +184,7 @@ List<Integer> result = numbers.stream()
         .collect(Collectors.toList()); // 结果为：[4, 5]。
 ```
 
-你可以引入数组的长度，以实现从后往前截取元素的效果：
+你可以引入流的长度数据，以实现从后往前截取元素的效果：
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -189,9 +193,9 @@ List<Integer> result = numbers.stream()
         .collect(Collectors.toList()); // 结果为：[3, 4, 5]。
 ```
 
-#### 遍历 `peek`
+#### 冒泡 `peek`
 
-遍历操作可以对流中的每个元素进行一些操作，但不同于映射操作的是，它仍然返回之前的流。因此，遍历操作前后，元素的类型不会发生变化。
+冒泡操作可以对流中的每个元素进行一些操作，但不同于映射操作的是，它仍然返回之前的流。因此，冒泡操作前后，元素的类型不会发生变化。
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -202,6 +206,255 @@ List<Integer> result = numbers.stream()
 
 ### 终止操作[^终止操作]
 
-[^终止操作]: 
+[^终止操作]: Terminate Operations。终止操作是指对流进行最终处理的操作，它们会返回一个非流的结果。
 
-终止操作是流的最后一个操作，它会返回一个非流的结果，比如 `List`、`Integer` 等。终止操作会触发流的执行，因此，终止操作之后，流就不能再被使用了。
+终止操作作为流的最后一个操作，会返回一个非流的结果，比如 `List`、`Integer` 等。而且只有终止操作才会触发流的执行，因为中间操作都是惰性化[^延迟执行]的。因此，终止操作之后，流就不能再被使用了。
+
+#### 匹配 `allMatch` `anyMatch` `noneMatch`
+
+匹配操作可以用于判断流中的元素是否满足某个条件。
+
+##### 全部匹配 `allMatch`
+
+全部匹配用于判断流中的所有元素是否都满足某个条件，下面的示例中，我们判断流中的所有元素是否都大于0。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+boolean result = numbers.stream()
+        .allMatch(number -> number > 0); // 结果为：true。
+```
+
+特别地，如果流为空，则会无视评估谓词并返回 `true` 。
+
+当你不需要确定结果时，可以使全部匹配发生短路现象[^短路]（待补充）。
+
+##### 任意匹配 `anyMatch`
+
+任意匹配用于判断流中是否存在任意一个元素满足某个条件，下面的示例中，我们判断流中是否存在任意一个元素的第一个字符为大写。
+
+```java
+List<String> words = Arrays.asList("Hello", "world", "javaCodes");
+boolean result = words.stream()
+        .anyMatch(word -> Character.isUpperCase(word.charAt(0))); // 结果为：true。
+```
+
+特别地，如果流为空，则会无视评估谓词并返回 `false` 。
+
+当你不需要确定结果时，可以使任意匹配发生短路现象[^短路]（待补充）。
+
+##### 无匹配 `noneMatch`
+
+无匹配用于判断流中是否不存在任意一个元素满足某个条件，下面的示例中，我们判断流中是否不存在任意一个元素的长度为5，条件等价于判断流中的所有元素的长度是否都不为5。
+
+```java
+List<String> words = Arrays.asList("Hello", "World", "Java");
+boolean result = words.stream()
+        .noneMatch(word -> word.length() == 5); // 结果为：false，因为流中存在长度为5的单词"Hello"和"World"。
+```
+
+为了帮助你理解，在下面的示例中我们使用无匹配来判断流中是否不存在任意一个整数2。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 5, 7, 9);
+boolean result = numbers.stream()
+        .noneMatch(number -> number == 2); // 结果为：true，因为流中不存在整数2。
+```
+
+特别地，如果流为空，则会无视评估谓词并返回 `true` 。
+
+当你不需要确定结果时，可以使无匹配发生短路现象[^短路]（待补充）。
+
+#### 查找 `findFirst` `findAny`
+
+查找操作可以用于从流中查找一个符合条件的元素。
+
+查找操作的返回值为 `Optional` 类型。这是一种特殊的容器，它可以包含一个值，也可以不包含任何值。我们可以用 `Optional[对象]` 来代表包含对象的 `Optional` 类型。
+
+特别地，空的 `Optional` 类型对应 `Optional.empty()` 。
+
+##### 顺序查找 `findFirst`
+
+顺序查找用于从流中查找第一个符合条件的元素，下面的示例中，我们查找流中第一个偶数。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 6, 7, 9);
+Optional<Integer> result = numbers.stream()
+        .filter(number -> number % 2 == 0)
+        .findFirst(); // 结果为：Optional[6]。
+```
+
+特别地，如果流为空，则会返回一个空的 `Optional` ；如果流不存在顺序，则可能返回任何一个元素。
+
+##### 并行查找 `findAny`
+
+并行查找用于从流中查找任意一个符合条件的元素，下面的示例中，我们查找流中任意一个偶数。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 6, 7, 9, 10, 11, 12);
+Optional<Integer> result = numbers.parallelStream()
+        .filter(number -> number % 2 == 0)
+        .findAny(); // 结果为：Optional[6] 或 Optional[10] 或 Optional[12]。
+```
+
+注意，并行查找是明确短路[^短路]的，这意味着它具有明确不确定性。多次调用并行查找的返回值可能是流中任意符合要求的元素之一。
+
+特别地，如果流为空，则会返回一个空的 `Optional` ；如果所选元素为 `null` ，则会抛出空指针异常。
+
+#### 归约 `reduce`
+
+归约操作用于将流中的元素归约为一个值。归约操作的返回值为 `Optional` 类型。
+
+##### 无初始值的归约 `reduce`
+
+无初始值的归约用于将流中的元素归约为一个值，下面的示例中，我们将流中的元素归约为一个整数，这个整数是流中所有元素的和。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
+Optional<Integer> result = numbers.stream()
+        .reduce((number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+```
+
+特别地，如果流为空，则会返回一个空的 `Optional` 。
+
+##### 有初始值的归约 `reduce`
+
+有初始值的归约相比于无初始值的归约多了一项参数，以防止返回值为空。下面的示例中，我们指定了初始值 `0` ，并对元素求和。
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
+Optional<Integer> result = numbers.stream()
+        .reduce(0, (number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+```
+
+特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
+
+我们可以通过归约操作方便地对流进行求和、求积、求最大值、求最小值等一系列操作。如下是求和操作的示例：
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
+Optional<Integer> result = numbers.stream()
+        .reduce(0, Integer::sum); // 结果为：Optional[16]。
+```
+
+我们也可以使用多参数的 `Lambda表达式` 来实现求和操作：
+
+```java
+List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
+Optional<Integer> result = numbers.stream()
+        .reduce(0, (number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+```
+
+#### 收集 `collect`
+
+收集是常用的终止操作之一，用于将流中的元素收集到一个容器中。收集操作的返回值为 `Optional` 类型。
+
+##### 无初始值的收集 `collect`
+
+无初始值的收集用于将流中的元素收集到一个容器中，下面的示例中，我们将流中的所有数取整并收集到一个 `List` 中。
+
+```java
+List<Integer> numbers = Arrays.asList(1.1, 2, 3.0F, 6 - 2);
+Optional<List<Integer>> result = numbers.stream()
+        .map(number -> (int) Math.round(number))
+        .collect(Collectors.toList()); // 结果为：Optional[[1, 2, 3, 4]]。
+```
+
+特别地，如果流为空，则会返回一个空的 `Optional` 。
+
+##### 有初始值的收集 `collect`
+
+有初始值的收集相比于无初始值的收集多了一项参数，以防止返回值为空。下面的示例中，我们指定了初始值 `0` ，并将流中的所有数取整再求和。因为我们进行了求和操作，所以收集的结果不再是 `List` 类型。
+
+```java
+List<Integer> numbers = Arrays.asList(1.1, 2, 3.0F, 6 - 2);
+Optional<Integer> result = numbers.stream()
+        .map(number -> (int) Math.round(number))
+        .collect(0, (number1, number2) -> number1 + number2); // 结果为：Optional[10]。
+```
+
+特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
+
+#### 遍历 `forEach`
+
+遍历操作用于遍历流中的元素，无返回类型。
+
+```java
+List<String> messages = Arrays.asList("Hello", " ", "World", "!");
+messages.stream().forEach(message -> System.out.print(message)); // 输出："Hello World!"。
+```
+
+在上述示例中，我们使用 `forEach` 遍历了 `messages` 中的所有元素，并将其打印出来。
+
+#### 聚合 `by`
+
+聚合操作用于将流中的元素分组，返回值为 `Map` 类型。
+
+##### 分组聚合 `groupingBy`
+
+分组聚合操作用于将流中的元素按照某个条件进行分组。假设我们要按照球队对这三位篮球运动员分组：
+
+```java
+List<Player> players = Arrays.asList(
+		new Player("James", "Lakers"), // 球员James，所属球队为Lakers。
+		new Player("Kobe", "Lakers"), // 球员Kobe，所属球队为Lakers。
+		new Player("Curry", "Warriors") // 球员Curry，所属球队为Warriors。
+		);
+```
+
+那么我们可以使用 `groupingBy` 操作来实现：
+
+```java
+Map<String, List<Player>> result = players.stream()
+        .collect(Collectors.groupingBy(Player::getTeam)); // 结果为：{Lakers=[James, Kobe], Warriors=[Curry]}。
+```
+
+##### 分区聚合 `partitioningBy`
+
+分区聚合操作用于将流中的元素按照某个条件进行分区。假设我们要按照球员是否退役进行分区：
+
+```java
+List<Player> players = Arrays.asList(
+        new Player("James", true), // 球员James，在役。
+        new Player("Kobe", false), // 球员Kobe，已退役。
+        new Player("Curry", false) // 球员Curry，已退役。
+        );
+```
+
+那么我们可以使用 `partitioningBy` 操作来实现：
+
+```java
+Map<Boolean, List<Player>> result = players.stream()
+        .collect(Collectors.partitioningBy(Player::isRetired /* 是否退役 */)); // 结果为：{false=[James], true=[Kobe, Curry]}。
+```
+
+#### 转换 `to`
+
+转换操作用于将流中的元素转换为其他类型，返回值即为对应类型。
+
+##### 转换为有序集合 `toList`
+
+转换为有序集合操作用于将流中的元素转换为 `List` 类型。
+
+##### 转换为无序集合 `toSet`
+
+转换为无序集合操作用于将流中的元素转换为 `Set` 类型，可以去除重复项。
+
+##### 转换为键-值对集合 `toMap`
+
+转换为键-值对集合操作用于将流中的元素转换为 `Map` 类型，需要指定键和值的映射函数。
+
+假设我们仍然对三位篮球运动员的信息进行处理，但我们想获得一个以球员名字作为键，球员队伍作为值的集合，我们可以这样做：
+
+```java
+Map<String, String> result = players.stream()
+        .collect(Collectors.toMap(Player::getName, Player::getTeam)); // 结果为：{James=Lakers, Kobe=Lakers, Curry=Warriors}。
+```
+
+如果你无法确保每名球员的名字都是唯一的，那么你可以使用 `toMap` 的重载方法来指定当键重复时的处理方式：
+
+```java
+Map<String, String> result = players.stream()
+        .collect(Collectors.toMap(Player::getName, Player::getTeam, (oldValue, newValue) -> newValue)); // 结果仍然为：{James=Lakers, Kobe=Lakers, Curry=Warriors}，因为没有重复的球员名字。
+```
+
+其中的重载方法 `(oldValue, newValue) -> newValue` 规定了当键重复时，新值会覆盖旧值。

@@ -166,7 +166,7 @@ public class Test {
 		// 获取所有（包括私有）方法。
 		Method[] methods = testObjClass.getDeclaredMethods();
 		// 遍历方法，并对其调用iteratorAnnotations(Method method)方法。
-		// 如果你对这一行代码感到困惑，可以去看看我的Stream语法和Lambda表达式学习笔记（coming soon!）。
+		// 如果你对这一行代码感到困惑，可以去看看我的 `流式处理` 和 `Lambda表达式` 学习笔记（coming soon!）。
 		Arrays.stream(methods).forEach(Test::iteratorAnnotations);
 
 		// 获取所有（包括私有）字段。
