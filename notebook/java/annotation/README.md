@@ -68,9 +68,9 @@ public class MyClass {
 
 #### 定义注解
 
-在 [`annotation ↗`](/test/annotation) 包中定义了三个注解类： [`FieldInfo ↗`](/test/annotation/FieldInfo.java) 、 [`MethodInfo ↗`](/test/annotation/MethodInfo.java) 和 [`Silent ↗`](/test/annotation/Silent.java) 。
+在 [`annotation ↗`](test/annotation) 包中定义了三个注解类： [`FieldInfo ↗`](test/annotation/FieldInfo.java) 、 [`MethodInfo ↗`](test/annotation/MethodInfo.java) 和 [`Silent ↗`](test/annotation/Silent.java) 。
 
-其中 [`FieldInfo ↗`](/test/annotation/FieldInfo.java) 用于标注字段，解释如下：
+其中 [`FieldInfo ↗`](test/annotation/FieldInfo.java) 用于标注字段，解释如下：
 
 ```java
 @Target(ElementType.FIELD) // 标注这个注解类只能用于字段。
@@ -81,9 +81,9 @@ public @interface FieldInfo {
 }
 ```
 
-其中 [`MethodInfo ↗`](/test/annotation/MethodInfo.java) 用于标注方法，其构造方式和 [`FieldInfo ↗`](/test/annotation/FieldInfo.java) 一样，不作解释。
+其中 [`MethodInfo ↗`](test/annotation/MethodInfo.java) 用于标注方法，其构造方式和 [`FieldInfo ↗`](test/annotation/FieldInfo.java) 一样，不作解释。
 
-其中 [`Silent ↗`](/test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段，还可以在类型前使用。解释如下：
+其中 [`Silent ↗`](test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段，还可以在类型前使用。解释如下：
 
 ```java
 @Target({
@@ -106,7 +106,7 @@ public void method() {
 }
 ```
 
-可能你也注意到了， [`Silent ↗`](/test/annotation/Silent.java) 注解类的 `@Target` 属性中有一个特殊的 `ElementType.TYPE_USE` ，这个属性表示这个注解类可以用于类型前。如下：
+可能你也注意到了， [`Silent ↗`](test/annotation/Silent.java) 注解类的 `@Target` 属性中有一个特殊的 `ElementType.TYPE_USE` ，这个属性表示这个注解类可以用于类型前。如下：
 
 ```java
 public @Silent String str;
@@ -116,7 +116,7 @@ private final @Silent int someValue = 1;
 
 #### 使用注解
 
-接下来，让我们来分析 [`Test ↗`](/test/Test.java) 类中的代码：
+接下来，让我们来分析 [`Test ↗`](test/Test.java) 类中的代码：
 
 首先，创建一个 `TestObj` 类，并在其中写入一些方法和注解。
 
