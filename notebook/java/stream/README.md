@@ -264,6 +264,17 @@ boolean result = numbers.stream()
 
 当你不需要确定结果时，可以使无匹配发生短路现象[^短路]（待补充）。
 
+#### 遍历 `forEach`
+
+遍历操作用于遍历流中的元素，无返回类型。
+
+```java
+List<String> messages = Arrays.asList("Hello", " ", "World", "!");
+messages.stream().forEach(message -> System.out.print(message)); // 输出："Hello World!"。
+```
+
+在上述示例中，我们使用 `forEach` 遍历了 `messages` 中的所有元素，并将其打印出来。
+
 #### 查找 `findFirst` `findAny`
 
 查找操作可以用于从流中查找一个符合条件的元素。
@@ -304,7 +315,7 @@ Optional<Integer> result = numbers.parallelStream()
 
 归约操作用于将流中的元素归约为一个值。归约操作的返回值为 `Optional` 类型。
 
-##### 无初始值的归约 `reduce`
+##### 无初始值的归约
 
 无初始值的归约用于将流中的元素归约为一个值，下面的示例中，我们将流中的元素归约为一个整数，这个整数是流中所有元素的和。
 
@@ -316,7 +327,7 @@ Optional<Integer> result = numbers.stream()
 
 特别地，如果流为空，则会返回一个空的 `Optional` 。
 
-##### 有初始值的归约 `reduce`
+##### 有初始值的归约
 
 有初始值的归约相比于无初始值的归约多了一项参数，以防止返回值为空。下面的示例中，我们指定了初始值 `0` ，并对元素求和。
 
@@ -348,7 +359,7 @@ Optional<Integer> result = numbers.stream()
 
 收集是常用的终止操作之一，用于将流中的元素收集到一个容器中。收集操作的返回值为 `Optional` 类型。
 
-##### 无初始值的收集 `collect`
+##### 无初始值的收集
 
 无初始值的收集用于将流中的元素收集到一个容器中，下面的示例中，我们将流中的所有数取整并收集到一个 `List` 中。
 
@@ -361,7 +372,7 @@ Optional<List<Integer>> result = numbers.stream()
 
 特别地，如果流为空，则会返回一个空的 `Optional` 。
 
-##### 有初始值的收集 `collect`
+##### 有初始值的收集
 
 有初始值的收集相比于无初始值的收集多了一项参数，以防止返回值为空。下面的示例中，我们指定了初始值 `0` ，并将流中的所有数取整再求和。因为我们进行了求和操作，所以收集的结果不再是 `List` 类型。
 
@@ -374,18 +385,7 @@ Optional<Integer> result = numbers.stream()
 
 特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
 
-#### 遍历 `forEach`
-
-遍历操作用于遍历流中的元素，无返回类型。
-
-```java
-List<String> messages = Arrays.asList("Hello", " ", "World", "!");
-messages.stream().forEach(message -> System.out.print(message)); // 输出："Hello World!"。
-```
-
-在上述示例中，我们使用 `forEach` 遍历了 `messages` 中的所有元素，并将其打印出来。
-
-#### 聚合 `by`
+#### 聚合 `groupingBy` `partitioningBy`
 
 聚合操作用于将流中的元素分组，返回值为 `Map` 类型。
 
@@ -427,7 +427,7 @@ Map<Boolean, List<Player>> result = players.stream()
         .collect(Collectors.partitioningBy(Player::isRetired /* 是否退役 */)); // 结果为：{false=[James], true=[Kobe, Curry]}。
 ```
 
-#### 转换 `to`
+#### 转换 `toList` `toSet` `toMap`
 
 转换操作用于将流中的元素转换为其他类型，返回值即为对应类型。
 
