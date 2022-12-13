@@ -20,9 +20,13 @@ class TestObj {
 		System.out.println("Invoked!");
 	}
 
+	public @Silent String method3() {
+		return "Silent!";
+	}
+
 	@Silent
 	@MethodInfo(id = "method3", date = "null")
-	public void method3() {
+	public void method4() {
 		System.out.println("Should not be invoked.");
 	}
 
@@ -49,9 +53,7 @@ public class Test {
 
 	public static void iteratorAnnotations(Method method) {
 		if (method.isAnnotationPresent(Silent.class) || method.getReturnType().isAnnotationPresent(Silent.class)) {
-			System.out.println("::silent method::");
-			System.out.println();
-
+			System.out.println("::silent method::\n");
 			return;
 		}
 
@@ -61,9 +63,9 @@ public class Test {
 
 			try {
 				method.setAccessible(true);
-				method.invoke(method.getDeclaringClass().newInstance());
+				method.invoke(method.getDeclaringClass().getDeclaredConstructor().newInstance());
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 
 			System.out.println("<author>: " + methodInfo.author());
@@ -79,10 +81,8 @@ public class Test {
 	}
 
 	public static void iteratorAnnotations(Field field) {
-		if (field.isAnnotationPresent(Silent.class) || field.getType().isAnnotationPresent(Silent.class)) {
-			System.out.println("::silent field::");
-			System.out.println();
-
+		if (field.isAnnotationPresent(Silent.class)) {
+			System.out.println("::silent field::\n");
 			return;
 		}
 
@@ -92,8 +92,8 @@ public class Test {
 
 			try {
 				field.setAccessible(true);
-				System.out.println(field.get(field.getDeclaringClass().newInstance()));
-			} catch (IllegalAccessException | InstantiationException e) {
+				System.out.println(field.get(field.getDeclaringClass().getDeclaredConstructor().newInstance()));
+			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 

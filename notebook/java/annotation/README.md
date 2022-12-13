@@ -83,13 +83,12 @@ public @interface FieldInfo {
 
 其中 [`MethodInfo ↗`](test/annotation/MethodInfo.java) 用于标注方法，其构造方式和 [`FieldInfo ↗`](test/annotation/FieldInfo.java) 一样，不作解释。
 
-其中 [`Silent ↗`](test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段，还可以在类型前使用。解释如下：
+其中 [`Silent ↗`](test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段。解释如下：
 
 ```java
 @Target({
         ElementType.FIELD, // 标注这个注解类可以用于字段。
         ElementType.METHOD, // 标注这个注解类可以用于方法。
-        ElementType.TYPE_USE // 标注这个注解类可以用于类型前。
 }) // 可以用数组标注多个类型属性。
 @Retention(RetentionPolicy.RUNTIME) // 标注这个注解类在运行时可以被反射。
 public @interface Silent {
@@ -106,11 +105,13 @@ public void method() {
 }
 ```
 
-可能你也注意到了， [`Silent ↗`](test/annotation/Silent.java) 注解类的 `@Target` 属性中有一个特殊的 `ElementType.TYPE_USE` ，这个属性表示这个注解类可以用于类型前。如下：
+只要是可以用于方法或字段的注解，也都可以写在它们的类型之前：
 
 ```java
 public @Silent String str;
 private final @Silent int someValue = 1;
+public @Silent void method() {
+}
 // ...
 ```
 
@@ -134,9 +135,14 @@ class TestObj {
 		System.out.println("Invoked!");
 	}
 
-	// 为 method3 添加了 @MethodInfo 注解，但同时也添加了 @Silent 注解，所以这个方法不应该在反射时被调用。
+	// 为 method3 添加了 @Silent 注解，它不应该被调用。
+	public @Silent String method3() {
+		return "Silent!";
+	}
+
+	// 为 method4 添加了 @MethodInfo 注解，但同时也添加了 @Silent 注解，所以这个方法不应该在反射时被调用。
 	@Silent
-	@MethodInfo(id = "method3", date = "null")
+	@MethodInfo(id = "method4", date = "null")
 	public void method3() {
 		System.out.println("Should not be invoked.");
 	}
@@ -150,7 +156,6 @@ class TestObj {
 	private final String field2 = "This is a string.";
 
 	// 为 field3 添加了 @FieldInfo 注解，但同时也添加了 @Silent 注解，所以这个字段不应该在反射时被访问。
-    	// 这个字段的 @Silent 注解就是添加在返回类型前的。不过依照我们的代码，它的效果与在字段前添加 @Silent 注解是相同的。
 	public final @Silent String field3 = "A special field that should not be printed.";
 }
 ```
@@ -186,11 +191,9 @@ public class Test {
 ```java
 public class Test {
 	public static void iteratorAnnotations(Method method /* 传入方法 */) {
-		if (method.isAnnotationPresent(Silent.class) /* 判断方法前是否被 @Silent 注解，如果是则为真。 */ || method.getReturnType().isAnnotationPresent(Silent.class)) /* 判断方法的返回类型是否被 @Silent 注解，如果是则为真。 */ {
-			System.out.println("::silent method::");
-			System.out.println();
-
+		if (method.isAnnotationPresent(Silent.class) /* 判断方法是否被 @Silent 注解，如果是则为真。 */) {
 			// 如果方法前或方法的返回类型被 @Silent 注解，则不进行解析。
+			System.out.println("::silent method::\n");
 			return;
 		}
 
@@ -204,9 +207,9 @@ public class Test {
 				// 尝试访问私有方法。
 				method.setAccessible(true);
 				// 调用方法。
-				method.invoke(method.getDeclaringClass().newInstance());
+				method.invoke(method.getDeclaringClass().getDeclaredConstructor().newInstance());
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 
 			// 打印注解中的 author 、 date 和 comment 属性值。
@@ -229,11 +232,9 @@ public class Test {
 ```java
 public class Test {
 	public static void iteratorAnnotations(Field field /* 传入字段 */) {
-		if (field.isAnnotationPresent(Silent.class) /* 判断字段前是否被 @Silent 注解，如果是则为真。 */ || field.getType().isAnnotationPresent(Silent.class) /* 判断字段类型是否被 @Silent 注解，如果是则为真。 */) {
-			System.out.println("::silent field::");
-			System.out.println();
-
+		if (field.isAnnotationPresent(Silent.class) /* 判断字段是否被 @Silent 注解，如果是则为真。 */) {
 			// 如果字段前或字段类型被 @Silent 注解，则不进行解析。
+			System.out.println("::silent field::\n");
 			return;
 		}
 
@@ -247,8 +248,8 @@ public class Test {
 				// 同样地，先尝试访问私有字段。
 				field.setAccessible(true);
 				// 然后打印字段的值（空即为"null"）。
-				System.out.println(field.get(field.getDeclaringClass().newInstance()));
-			} catch (IllegalAccessException | InstantiationException e) {
+				System.out.println(field.get(field.getDeclaringClass().getDeclaredConstructor.newInstance()));
+			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 
@@ -273,6 +274,8 @@ Invoked!
 <author>: N/A
 <date>: 2077-07-07
 <revision>: 1
+
+::silent method::
 
 ::silent method::
 
