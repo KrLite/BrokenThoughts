@@ -63,9 +63,11 @@ List<String> result = days.stream() // 将集合转换为流。
 
 上述例子中的 `filter` 操作会返回一个新的流，其中包含了不是星期一的元素。这个新的流可以继续进行其他操作，比如 `map` `sorted` 等。
 
-为流中的元素进行筛选时，推荐使用 `Lambda表达式` 。如果你对这种写法感到陌生，可以去看看我的学习笔记。
+为流中的元素进行筛选时，推荐使用 `Lambda 表达式` 。如果你对这种写法感到陌生，可以去看看我的学习笔记。
 
-当然，你可以用 `Lambda表达式` 实现更多的筛选操作，比如：
+[`Lambda 表达式 ↗`](/notebook/java/lambda)
+
+当然，你可以用 `Lambda 表达式` 实现更多的筛选操作，比如：
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
@@ -347,7 +349,7 @@ Optional<Integer> result = numbers.stream()
         .reduce(0, Integer::sum); // 结果为：Optional[16]。
 ```
 
-我们也可以使用多参数的 `Lambda表达式` 来实现求和操作：
+我们也可以使用多参数的 `Lambda 表达式` 来实现求和操作：
 
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
