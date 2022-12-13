@@ -78,30 +78,30 @@ public class Printer {
 	private static int times;
 	
 	public Printer() {
-        times = 0;
-    }
+		times = 0;
+	}
 	
 	public Action printAction(String msg) {
         return () -> {
 			times++;
-            System.out.println(msg + " " + times);
-        };
-    }
+			System.out.println(msg + " " + times);
+		};
+	}
 }
 
 interface Action {
     void print();
 }
 
-public class Office {
-	    public static void main(String[] args) {
-        Printer printer = new Printer();
-        Action action = printer.printAction("Hello: ");
+public class Office { 
+	public static void main(String[] args) {
+		Printer printer = new Printer();
+		Action action = printer.printAction("Hello: ");
 		
-        action.print();
-        action.print();
-        action.print();
-    }
+		action.print();
+		action.print();
+		action.print();
+	}
 }
 ```
 
