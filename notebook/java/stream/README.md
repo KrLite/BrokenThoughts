@@ -1,4 +1,4 @@
-# <p align=left><sub>[`←` Java](/notebook/java)</sub></p> <p align=left>Arrays.stream / 流式处理</p>
+# <p align=left><sub>[`←` Java](/notebook/java)</sub></p> <p align=left>Stream Processing : 流式处理</p>
 
 `Java 8 Api`
 
