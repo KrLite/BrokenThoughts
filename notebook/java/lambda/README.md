@@ -1,4 +1,4 @@
-[`←` Java](/notebook/java)
+### [`←` Java](/notebook/java)
 
 # λ Expressions : Lambda 表达式
 

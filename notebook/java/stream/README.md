@@ -1,4 +1,4 @@
-[`←` Java](/notebook/java)
+### [`←` Java](/notebook/java)
 
 # Stream Processing : 流式处理
 
