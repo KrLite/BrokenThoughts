@@ -1,7 +1,7 @@
-# BrokenThoughts / 碎碎念
+# BrokenThoughts / 碎碎念[^issues]
 
-在这里，你可以找到我的：
+### 在这里，你可以找到我的：
 
-## <p>[学习笔记 `→`](notebook)</p> <p>持续更新中 `...`</p>
+### [学习笔记 `→`](notebook)
 
-如果你发现了其中的某些知识性错误，[请随时为我指出！](https://github.com/KrLite/BrokenThoughts/issues)
+[^issues]: 如果你发现了其中的某些知识性错误，[请随时为我指出！](https://github.com/KrLite/BrokenThoughts/issues)
