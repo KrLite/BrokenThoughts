@@ -1,6 +1,6 @@
 ### [`←` Java](/notebook/java)
 
-# Annotation : 注解
+# 注解 `Annotation`
 
 `JDK 5.0`
 

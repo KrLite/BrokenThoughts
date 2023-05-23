@@ -1,6 +1,6 @@
 ### [`←` Java](/notebook/java)
 
-# Stream Processing : 流式处理
+# 流式处理 `Stream Processing`
 
 `Java 8 Api`
 

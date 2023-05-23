@@ -1,8 +1,8 @@
 ### [`←` Java](/notebook/java)
 
-# λ Expressions : Lambda 表达式
+# Lambda 表达式 `λ Expressions`
 
-`Java 8 Api` `重要特性`
+`Java 8 Api` **`重要特性`**
 
 Lambda 表达式[^Lambda]是推动 Java 8 发布的重要特性，它允许把函数作为一个方法的参数，或者说可以将函数作为参数传递进方法中。
 
