@@ -1,4 +1,4 @@
-[`←` Java](/notebook/java)
+### [`←` Java](/notebook/java)
 
 # Annotation : 注解
 
