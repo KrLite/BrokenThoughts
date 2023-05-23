@@ -4,9 +4,9 @@
 
 ### 类 `Classes`
 
-<br />
-
 > [注解 `Annotation` `→`](annotation)
+
+<br />
 
 ### 语法 `Syntaxes`
 
