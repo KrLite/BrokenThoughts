@@ -1,4 +1,6 @@
-# <p align=left><sub>[`←` Java](/notebook/java)</sub></p> <p align=left>λ Expressions : Lambda 表达式</p>
+[`←` Java](/notebook/java)
+
+# λ Expressions : Lambda 表达式
 
 `Java 8 Api` `重要特性`
 

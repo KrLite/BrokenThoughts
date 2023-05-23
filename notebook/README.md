@@ -1,3 +1,5 @@
-# <p align=left><sub>[`⌘` 索引](https://github.com/KrLite/BrokenThoughts)</sub></p> <p align=left>学习笔记</p>
+[`⌘` 索引](https://github.com/KrLite/BrokenThoughts)
 
-## [Java](java)
+# 学习笔记
+
+### [Java](java)

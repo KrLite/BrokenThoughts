@@ -1,4 +1,6 @@
-# <p align=left><sub>[`←` Java](/notebook/java)</sub></p> <p align=left>Annotation : 注解</p>
+[`←` Java](/notebook/java)
+
+# Annotation : 注解
 
 `JDK 5.0`
 

@@ -1,4 +1,6 @@
-# <p align=left><sub>[`←` Java](/notebook/java)</sub></p> <p align=left>Stream Processing : 流式处理</p>
+[`←` Java](/notebook/java)
+
+# Stream Processing : 流式处理
 
 `Java 8 Api`
 
@@ -386,48 +388,6 @@ Optional<Integer> result = numbers.stream()
 ```
 
 特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
-
-#### 聚合 `groupingBy` `partitioningBy`
-
-聚合操作用于将流中的元素分组，返回值为 `Map` 类型。
-
-##### 分组聚合 `groupingBy`
-
-分组聚合操作用于将流中的元素按照某个条件进行分组。假设我们要按照球队对这三位篮球运动员分组：
-
-```java
-List<Player> players = Arrays.asList(
-		new Player("James", "Lakers"), // 球员James，所属球队为Lakers。
-		new Player("Kobe", "Lakers"), // 球员Kobe，所属球队为Lakers。
-		new Player("Curry", "Warriors") // 球员Curry，所属球队为Warriors。
-		);
-```
-
-那么我们可以使用 `groupingBy` 操作来实现：
-
-```java
-Map<String, List<Player>> result = players.stream()
-        .collect(Collectors.groupingBy(Player::getTeam)); // 结果为：{Lakers=[James, Kobe], Warriors=[Curry]}。
-```
-
-##### 分区聚合 `partitioningBy`
-
-分区聚合操作用于将流中的元素按照某个条件进行分区。假设我们要按照球员是否退役进行分区：
-
-```java
-List<Player> players = Arrays.asList(
-        new Player("James", true), // 球员James，在役。
-        new Player("Kobe", false), // 球员Kobe，已退役。
-        new Player("Curry", false) // 球员Curry，已退役。
-        );
-```
-
-那么我们可以使用 `partitioningBy` 操作来实现：
-
-```java
-Map<Boolean, List<Player>> result = players.stream()
-        .collect(Collectors.partitioningBy(Player::isRetired /* 是否退役 */)); // 结果为：{false=[James], true=[Kobe, Curry]}。
-```
 
 #### 转换 `toList` `toSet` `toMap`
 
