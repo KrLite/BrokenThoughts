@@ -2,4 +2,4 @@
 
 # 学习笔记
 
-### [Java](java)
+### [Java `→`](java)
