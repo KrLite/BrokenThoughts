@@ -65,20 +65,20 @@ arrLen = len(arr)
 ```
 
 ```python
-def heapify(arr: list, i: int): # i 为当前节点的索引
-	largest = i       # 初始化当前节点索引为最大值索引
-	left = 2 * i + 1  # 左子节点索引
-	right = 2 * i + 2 # 右子节点索引
+def heapify(arr: list, i: int):    # i 为当前节点的索引
+	largest = i          # 初始化当前节点索引为最大值索引
+	left = 2 * i + 1     # 左子节点索引
+	right = 2 * i + 2    # 右子节点索引
 
 	if left < arrLen and arr[left] > arr[largest]:
-		largest = left # 如果存在左子节点且左子节点大于当前节点，则将左子节点索引赋值给最大值索引
+		largest = left    # 如果存在左子节点且左子节点大于当前节点，则将左子节点索引赋值给最大值索引
 
 	if right < arrLen and arr[right] > arr[largest]:
-		largest = right # 如果存在右子节点且右子节点大于当前节点，则将右子节点索引赋值给最大值索引
+		largest = right    # 如果存在右子节点且右子节点大于当前节点，则将右子节点索引赋值给最大值索引
 
 	if largest != i:
-		swap(arr, i, largest) # 如果最大值索引不等于当前节点索引，则交换当前节点与最大值节点的值
-		heapify(arr, largest) # 因为此时某个子节点的值被更新，所以需要在子节点处递归调用 heapify 函数
+		swap(arr, i, largest)    # 如果最大值索引不等于当前节点索引，则交换当前节点与最大值节点的值
+		heapify(arr, largest)    # 因为此时某个子节点的值被更新，所以需要在子节点处递归调用 heapify 函数
 ```
 
 其中，我们定义了一个 `swap` 函数，用于交换列表中两个元素的值：
@@ -97,7 +97,7 @@ def build_max_heap(arr: list):
 	import math
 
 	for i in range(math.floor(arrLen / 2), -1, -1):
-		heapify(arr, i) # 从最后一个非叶子节点开始，逐个向上构建大顶堆
+		heapify(arr, i)    # 从最后一个非叶子节点开始，逐个向上构建大顶堆
 ```
 
 ## 3. 堆的排序
@@ -249,9 +249,9 @@ def heap_sort(arr: list) -> list:
 	build_max_heap(arr)
 
 	for(i) in range(len(arr) - 1, 0, -1): # 从最后一个元素开始，逐个向前交换
-		swap(arr, 0, i) # 将堆中的根节点（数组中的最大值）交换到最后
-		arrLen -= 1     # 最大值归位，堆长度减一
-		heapify(arr, 0) # 对新的根节点进行 heapify 操作
+		swap(arr, 0, i)    # 将堆中的根节点（数组中的最大值）交换到最后
+		arrLen -= 1        # 最大值归位，堆长度减一
+		heapify(arr, 0)    # 对新的根节点进行 heapify 操作
 
 	return arr
 ```
