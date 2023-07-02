@@ -12,8 +12,21 @@
 
 流式处理模式图：
 
-```
-【数据源】--→【筛选】→【排序】→【聚合】→ ··· →【收集】--→【结果】
+```mermaid
+graph LR
+	S(数据源)
+	F(筛选)
+	Sort(排序)
+	D(聚合)
+	C(收集)
+	R(结果)
+	S --> F
+	F --> Sort
+	Sort --> D
+	D -...-> C
+	C --> R
+	style S fill:#adf,stroke-width:0px
+	style R fill:#f8a,stroke-width:0px
 ```
 
 ## 1. 流式处理是什么？
@@ -58,9 +71,9 @@
 
 ```java
 List<String> days = Arrays.asList("Saturday", "Sunday", "Monday");
-List<String> result = days.stream() // 将集合转换为流。
+List<String> result = days.stream()    // 将集合转换为流。
         .filter(holiday -> ("Saturday".equals(holiday) || "Sunday".equals(holiday))) // 筛选出属于周末的元素（星期一不是假期😭）。
-        .collect(Collectors.toList()); // 收集元素并转换为集合。
+        .collect(Collectors.toList());    // 收集元素并转换为集合。
 ```
 
 上述例子中的 `filter` 操作会返回一个新的流，其中包含了不是星期一的元素。这个新的流可以继续进行其他操作，比如 `map` `sorted` 等。
@@ -74,9 +87,9 @@ List<String> result = days.stream() // 将集合转换为流。
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9)
 List<Integer> result = number.stream()
-        .filter(number -> number % 2 == 0) // 筛选出偶数。
-        .filter(number -> number > 5) // 筛选出大于5的数。
-        .collect(Collectors.toList()); // 显而易见，result的元素只有6和8。
+        .filter(number -> number % 2 == 0)    // 筛选出偶数。
+        .filter(number -> number > 5)         // 筛选出大于5的数。
+        .collect(Collectors.toList());        // 显而易见，result的元素只有6和8。
 ```
 
 #### 映射 `map` `flatMap`
@@ -92,8 +105,8 @@ List<Integer> result = number.stream()
 ```java
 List<String> days = Arrays.asList("Saturday", "Sunday", "Monday");
 List<String> result = days.stream()
-        .map(String::toUpperCase) // 将每个字符串转换为大写。
-        .collect(Collectors.toList()); // 结果为：[SATURDAY, SUNDAY, MONDAY]。
+        .map(String::toUpperCase)         // 将每个字符串转换为大写。
+        .collect(Collectors.toList());    // 结果为：[SATURDAY, SUNDAY, MONDAY]。
 ```
 
 当然，你可以将元素映射为任何类型，比如：
@@ -101,8 +114,8 @@ List<String> result = days.stream()
 ```java
 List<String> names = Arrays.asList("Tom", "Jerry", "Mike");
 List<Integer> result = names.stream()
-        .map(String::length) // 将每个字符串映射为字符串的长度。
-        .collect(Collectors.toList()); // 结果为：[3, 5, 4]。
+        .map(String::length)              // 将每个字符串映射为字符串的长度。
+        .collect(Collectors.toList());    // 结果为：[3, 5, 4]。
 ```
 
 ##### 扁平化映射 `flatMap`
@@ -115,9 +128,9 @@ List<Integer> result = names.stream()
 List<Integer> numbers1 = Arrays.asList(1, 2, 3);
 List<Integer> numbers2 = Arrays.asList(4, 5, 6);
 
-List<Integer> result = Stream.of(numbers1, numbers2) // 将两个集合转换为流。
-        .flatMap(Collection::stream) // 将两个流合并为一个流。
-        .collect(Collectors.toList()); // 结果为：[1, 2, 3, 4, 5, 6]。
+List<Integer> result = Stream.of(numbers1, numbers2)    // 将两个集合转换为流。
+        .flatMap(Collection::stream)                    // 将两个流合并为一个流。
+        .collect(Collectors.toList());                  // 结果为：[1, 2, 3, 4, 5, 6]。
 ```
 
 你可以用扁平化映射大幅简化多条流的合并处理操作。
@@ -131,8 +144,8 @@ List<Integer> result = Stream.of(numbers1, numbers2) // 将两个集合转换为
 ```java
 List<Integer> numbers = Arrays.asList(3, 1, 2, 5, 4);
 List<Integer> result = numbers.stream()
-        .sorted() // 按照自然排序规则对元素进行排序。
-        .collect(Collectors.toList()); // 结果为：[1, 2, 3, 4, 5]。
+        .sorted()                         // 按照自然排序规则对元素进行排序。
+        .collect(Collectors.toList());    // 结果为：[1, 2, 3, 4, 5]。
 ```
 
 如果你想要自定义排序规则，可以使用 `sorted(Comparator)` 方法，比如进行降序排序：
@@ -140,8 +153,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(3, 1, 2, 5, 4);
 List<Integer> result = numbers.stream()
-        .sorted(Comparator.reverseOrder()) // 按照降序排序规则对元素进行排序。
-        .collect(Collectors.toList()); // 结果为：[5, 4, 3, 2, 1]。
+        .sorted(Comparator.reverseOrder())    // 按照降序排序规则对元素进行排序。
+        .collect(Collectors.toList());        // 结果为：[5, 4, 3, 2, 1]。
 ```
 
 使用 `Comparator` 接口的 `comparing` 方法自定义排序规则：
@@ -149,8 +162,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<String> names = Arrays.asList("Tom", "Jerry", "Mike");
 List<String> result = names.stream()
-        .sorted(Comparator.comparing(String::length)) // 按照字符串长度进行排序。
-        .collect(Collectors.toList()); // 结果为：[Tom, Mike, Jerry]。
+        .sorted(Comparator.comparing(String::length))    // 按照字符串长度进行排序。
+        .collect(Collectors.toList());                   // 结果为：[Tom, Mike, Jerry]。
 ```
 
 如果你想了解有关 `Comparator` 的更多信息，可以去看看我的 `Comparator` 学习笔记（coming soon!）。
@@ -162,8 +175,8 @@ List<String> result = names.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 0, 5, 2, 3, 6, 0, 2);
 List<Integer> result = numbers.stream()
-        .distinct() // 去除重复的元素。
-        .collect(Collectors.toList()); // 结果为：[1, 2, 3, 0, 5, 6]。
+        .distinct()                       // 去除重复的元素。
+        .collect(Collectors.toList());    // 结果为：[1, 2, 3, 0, 5, 6]。
 ```
 
 #### 截断 `limit`
@@ -173,8 +186,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> result = numbers.stream()
-        .limit(3) // 截取前三个元素。
-        .collect(Collectors.toList()); // 结果为：[1, 2, 3]。
+        .limit(3)                         // 截取前三个元素。
+        .collect(Collectors.toList());    // 结果为：[1, 2, 3]。
 ```
 
 #### 跳过 `skip`
@@ -184,8 +197,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> result = numbers.stream()
-        .skip(3) // 跳过前三个元素。
-        .collect(Collectors.toList()); // 结果为：[4, 5]。
+        .skip(3)                          // 跳过前三个元素。
+        .collect(Collectors.toList());    // 结果为：[4, 5]。
 ```
 
 你可以引入流的长度数据，以实现从后往前截取元素的效果：
@@ -193,8 +206,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> result = numbers.stream()
-        .skip(numbers.size() - 3) // 跳过前两个元素，相当于截取后三个元素。
-        .collect(Collectors.toList()); // 结果为：[3, 4, 5]。
+        .skip(numbers.size() - 3)         // 跳过前两个元素，相当于截取后三个元素。
+        .collect(Collectors.toList());    // 结果为：[3, 4, 5]。
 ```
 
 #### 冒泡 `peek`
@@ -204,8 +217,8 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> result = numbers.stream()
-        .peek(number -> number * 2) // 遍历每个元素，并将其乘以二。
-        .collect(Collectors.toList()); // 结果为：[2, 4, 6, 8, 10]。
+        .peek(number -> number * 2)       // 遍历每个元素，并将其乘以二。
+        .collect(Collectors.toList());    // 结果为：[2, 4, 6, 8, 10]。
 ```
 
 ### 终止操作[^终止操作]
@@ -225,7 +238,7 @@ List<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 boolean result = numbers.stream()
-        .allMatch(number -> number > 0); // 结果为：true。
+        .allMatch(number -> number > 0);    // 结果为：true。
 ```
 
 特别地，如果流为空，则会无视评估谓词并返回 `true` 。
@@ -239,7 +252,7 @@ boolean result = numbers.stream()
 ```java
 List<String> words = Arrays.asList("Hello", "world", "javaCodes");
 boolean result = words.stream()
-        .anyMatch(word -> Character.isUpperCase(word.charAt(0))); // 结果为：true。
+        .anyMatch(word -> Character.isUpperCase(word.charAt(0)));    // 结果为：true。
 ```
 
 特别地，如果流为空，则会无视评估谓词并返回 `false` 。
@@ -253,7 +266,7 @@ boolean result = words.stream()
 ```java
 List<String> words = Arrays.asList("Hello", "World", "Java");
 boolean result = words.stream()
-        .noneMatch(word -> word.length() == 5); // 结果为：false，因为流中存在长度为5的单词"Hello"和"World"。
+        .noneMatch(word -> word.length() == 5);    // 结果为：false，因为流中存在长度为5的单词"Hello"和"World"。
 ```
 
 为了帮助你理解，在下面的示例中我们使用无匹配来判断流中是否不存在任意一个整数2。
@@ -261,7 +274,7 @@ boolean result = words.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7, 9);
 boolean result = numbers.stream()
-        .noneMatch(number -> number == 2); // 结果为：true，因为流中不存在整数2。
+        .noneMatch(number -> number == 2);    // 结果为：true，因为流中不存在整数2。
 ```
 
 特别地，如果流为空，则会无视评估谓词并返回 `true` 。
@@ -274,7 +287,7 @@ boolean result = numbers.stream()
 
 ```java
 List<String> messages = Arrays.asList("Hello", " ", "World", "!");
-messages.stream().forEach(message -> System.out.print(message)); // 输出："Hello World!"。
+messages.stream().forEach(message -> System.out.print(message));    // 输出："Hello World!"。
 ```
 
 在上述示例中，我们使用 `forEach` 遍历了 `messages` 中的所有元素，并将其打印出来。
@@ -295,7 +308,7 @@ messages.stream().forEach(message -> System.out.print(message)); // 输出："He
 List<Integer> numbers = Arrays.asList(1, 3, 6, 7, 9);
 Optional<Integer> result = numbers.stream()
         .filter(number -> number % 2 == 0)
-        .findFirst(); // 结果为：Optional[6]。
+        .findFirst();    // 结果为：Optional[6]。
 ```
 
 特别地，如果流为空，则会返回一个空的 `Optional` ；如果流不存在顺序，则可能返回任何一个元素。
@@ -308,7 +321,7 @@ Optional<Integer> result = numbers.stream()
 List<Integer> numbers = Arrays.asList(1, 3, 6, 7, 9, 10, 11, 12);
 Optional<Integer> result = numbers.parallelStream()
         .filter(number -> number % 2 == 0)
-        .findAny(); // 结果为：Optional[6] 或 Optional[10] 或 Optional[12]。
+        .findAny();    // 结果为：Optional[6] 或 Optional[10] 或 Optional[12]。
 ```
 
 注意，并行查找是明确短路[^短路]的，这意味着它具有明确不确定性。多次调用并行查找的返回值可能是流中任意符合要求的元素之一。
@@ -326,7 +339,7 @@ Optional<Integer> result = numbers.parallelStream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
 Optional<Integer> result = numbers.stream()
-        .reduce((number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+        .reduce((number1, number2) -> number1 + number2);    // 结果为：Optional[16]。
 ```
 
 特别地，如果流为空，则会返回一个空的 `Optional` 。
@@ -338,7 +351,7 @@ Optional<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
 Optional<Integer> result = numbers.stream()
-        .reduce(0, (number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+        .reduce(0, (number1, number2) -> number1 + number2);    // 结果为：Optional[16]。
 ```
 
 特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
@@ -348,7 +361,7 @@ Optional<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
 Optional<Integer> result = numbers.stream()
-        .reduce(0, Integer::sum); // 结果为：Optional[16]。
+        .reduce(0, Integer::sum);    // 结果为：Optional[16]。
 ```
 
 我们也可以使用多参数的 `Lambda 表达式` 来实现求和操作：
@@ -356,7 +369,7 @@ Optional<Integer> result = numbers.stream()
 ```java
 List<Integer> numbers = Arrays.asList(1, 3, 5, 7);
 Optional<Integer> result = numbers.stream()
-        .reduce(0, (number1, number2) -> number1 + number2); // 结果为：Optional[16]。
+        .reduce(0, (number1, number2) -> number1 + number2);    // 结果为：Optional[16]。
 ```
 
 #### 收集 `collect`
@@ -371,7 +384,7 @@ Optional<Integer> result = numbers.stream()
 List<Integer> numbers = Arrays.asList(1.1, 2, 3.0F, 6 - 2);
 Optional<List<Integer>> result = numbers.stream()
         .map(number -> (int) Math.round(number))
-        .collect(Collectors.toList()); // 结果为：Optional[[1, 2, 3, 4]]。
+        .collect(Collectors.toList());    // 结果为：Optional[[1, 2, 3, 4]]。
 ```
 
 特别地，如果流为空，则会返回一个空的 `Optional` 。
@@ -384,7 +397,7 @@ Optional<List<Integer>> result = numbers.stream()
 List<Integer> numbers = Arrays.asList(1.1, 2, 3.0F, 6 - 2);
 Optional<Integer> result = numbers.stream()
         .map(number -> (int) Math.round(number))
-        .collect(0, (number1, number2) -> number1 + number2); // 结果为：Optional[10]。
+        .collect(0, (number1, number2) -> number1 + number2);    // 结果为：Optional[10]。
 ```
 
 特别地，如果流为空，则会返回一个包含初始值的 `Optional` ，在上述示例中，就是 `Optional[0]` 。
@@ -409,14 +422,14 @@ Optional<Integer> result = numbers.stream()
 
 ```java
 Map<String, String> result = players.stream()
-        .collect(Collectors.toMap(Player::getName, Player::getTeam)); // 结果为：{James=Lakers, Kobe=Lakers, Curry=Warriors}。
+        .collect(Collectors.toMap(Player::getName, Player::getTeam));    // 结果为：{James=Lakers, Kobe=Lakers, Curry=Warriors}。
 ```
 
 如果你无法确保每名球员的名字都是唯一的，那么你可以使用 `toMap` 的重载方法来指定当键重复时的处理方式：
 
 ```java
 Map<String, String> result = players.stream()
-        .collect(Collectors.toMap(Player::getName, Player::getTeam, (oldValue, newValue) -> newValue)); // 结果仍然为：{James=Lakers, Kobe=Lakers, Curry=Warriors}，因为没有重复的球员名字。
+        .collect(Collectors.toMap(Player::getName, Player::getTeam, (oldValue, newValue) -> newValue));    // 结果仍然为：{James=Lakers, Kobe=Lakers, Curry=Warriors}，因为没有重复的球员名字。
 ```
 
 其中的重载方法 `(oldValue, newValue) -> newValue` 规定了当键重复时，新值会覆盖旧值。

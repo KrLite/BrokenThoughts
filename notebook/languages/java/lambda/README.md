@@ -78,11 +78,11 @@ public class Closure {
 ```java
 public class Printer {
 	private static int times;
-	
+
 	public Printer() {
 		times = 0;
 	}
-	
+
 	public Action printAction(String msg) {
         return () -> {
 			times++;
@@ -95,11 +95,11 @@ interface Action {
     void print();
 }
 
-public class Office { 
+public class Office {
 	public static void main(String[] args) {
 		Printer printer = new Printer();
 		Action action = printer.printAction("Hello: ");
-		
+
 		action.print();
 		action.print();
 		action.print();
@@ -126,11 +126,11 @@ public class Calculator {
         Operation add = new Operation() {
             @Override
             public int calculate(int a, int b) {
-                return a + b; // 实现 calculate 抽象方法，并完成加法操作。
+                return a + b;    // 实现 calculate 抽象方法，并完成加法操作。
             }
         };
-		
-        System.out.println(add.calculate(1, 2)); // 结果为：3。
+
+        System.out.println(add.calculate(1, 2));    // 结果为：3。
     }
 }
 ```
@@ -141,10 +141,10 @@ public class Calculator {
 public class Calculator {
     public static void main(String[] args) {
         Operation add = (int a, int b) -> {
-            return a + b; // 同样实现了 calculate 抽象方法，并完成加法操作。
+            return a + b;    // 同样实现了 calculate 抽象方法，并完成加法操作。
         };
-		
-        System.out.println(add.calculate(1, 2)); // 结果为：3。
+
+        System.out.println(add.calculate(1, 2));    // 结果为：3。
     }
 }
 ```
@@ -157,10 +157,10 @@ public class Calculator {
 public class Calculator {
     public static void main(String[] args) {
         Operation add = (a, b) -> {
-            return a + b; // 省略了 a 和 b 的参数类型，因为编译器可以推断出来，他们只可能是整型。
+            return a + b;    // 省略了 a 和 b 的参数类型，因为编译器可以推断出来，他们只可能是整型。
         };
-        
-        System.out.println(add.calculate(1, 2)); // 结果为：3。
+
+        System.out.println(add.calculate(1, 2));    // 结果为：3。
     }
 }
 ```
@@ -170,9 +170,9 @@ public class Calculator {
 ```java
 public class Calculator {
     public static void main(String[] args) {
-        Operation add = (a, b) -> a + b; // 省略了 return 和大括号，因为方法体只有一行代码，可以省略大括号。
-        
-        System.out.println(add.calculate(1, 2)); // 结果为：3。
+        Operation add = (a, b) -> a + b;    // 省略了 return 和大括号，因为方法体只有一行代码，可以省略大括号。
+
+        System.out.println(add.calculate(1, 2));    // 结果为：3。
     }
 }
 ```
@@ -205,9 +205,9 @@ Operation add = (a, b) -> a + b;
 ```java
 public class Calculator {
     public static void main(String[] args) {
-        Operation add = (a, b) -> System.out.println(a + b); // 结构相同。
-        
-        add.calculate(1, 2); // 结果为：3。
+        Operation add = (a, b) -> System.out.println(a + b);    // 结构相同。
+
+        add.calculate(1, 2);    // 结果为：3。
     }
 }
 ```
@@ -227,17 +227,17 @@ public class Calculator {
         Operation sub = (a, b) -> a - b;
         Operation mul = (a, b) -> a * b;
         Operation div = (a, b) -> a / b;
-		
+
         // 使用已定义的 Lambda 表达式。
-        System.out.println(calculate(1, 2, add)); // 结果为：3。
-        System.out.println(calculate(1, 2, sub)); // 结果为：-1。
-        System.out.println(calculate(1, 2, mul)); // 结果为：2。
-        System.out.println(calculate(1, 2, div)); // 结果为：0。
-        
+        System.out.println(calculate(1, 2, add));    // 结果为：3。
+        System.out.println(calculate(1, 2, sub));    // 结果为：-1。
+        System.out.println(calculate(1, 2, mul));    // 结果为：2。
+        System.out.println(calculate(1, 2, div));    // 结果为：0。
+
         // 传递一个新的 Lambda 表达式。
-        System.out.println(calculate(1, 2, (a, b) -> Math.pow(a, b))); // 结果为：3。
+        System.out.println(calculate(1, 2, (a, b) -> Math.pow(a, b)));    // 结果为：3。
     }
-    
+
     public static int calculate(int a, int b, Operation operation) {
         return operation.calculate(a, b);
     }
@@ -284,10 +284,10 @@ Consumer<String> printer = (s) -> System.out.println(s);
 public class Calculator {
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("a", "bb", "ccc");
-        
+
         // 使用方法引用。
         strings.forEach(System.out::println);
-        
+
         // 不使用方法引用。
         strings.forEach((s) -> System.out.println(s));
     }
@@ -306,7 +306,7 @@ public class Calculator {
 public class Calculator {
     public static void main(String[] args) {
         Operation pow = Math::pow;
-        System.out.println(pow.calculate(2, 3)); // 结果为：8。
+        System.out.println(pow.calculate(2, 3));    // 结果为：8。
     }
 }
 ```
@@ -319,10 +319,10 @@ public class Calculator {
 public class Calculator {
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("a", "bb", "ccc");
-        
+
         // 使用方法引用。
         strings.sort(String::compareToIgnoreCase);
-        
+
         // 不使用方法引用。
         strings.sort((s1, s2) -> s1.compareToIgnoreCase(s2));
     }

@@ -15,15 +15,15 @@
 ```java
 import java.lang.annotation.*;
 
-@Documented // 使接口在 Javadoc 中显示；若无，则不显示。
-@Inherited // 允许子类继承父类的注解；若无，则不允许。
-@Target(ElementType.TYPE) // 类型属性；若无，则可以用于任何地方。
-@Retention(RetentionPolicy.RUNTIME) // 策略属性；若无，则默认为 RetentionPolicy.CLASS 。
+@Documented                            // 使接口在 Javadoc 中显示；若无，则不显示。
+@Inherited                             // 允许子类继承父类的注解；若无，则不允许。
+@Target(ElementType.TYPE)              // 类型属性；若无，则可以用于任何地方。
+@Retention(RetentionPolicy.RUNTIME)    // 策略属性；若无，则默认为 RetentionPolicy.CLASS 。
 
 public @interface
 // 这个类被 @interface 定义，即实现了 java.lang.annotation.Annotation 接口。
 AnnotationClass {
-    // 很多注解类并不需要具体的内容，只需要作为一个标记即可。
+	// 很多注解类并不需要具体的内容，只需要作为一个标记即可。
 }
 ```
 
@@ -55,9 +55,9 @@ AnnotationClass {
 
 ```java
 public class MyClass {
-	@Deprecated // 标注这个方法被弃用了，即不建议调用此方法。
-	@SuppressWarnings("unchecked") // 隐藏"unchecked"错误。
-	public static void method() { // 假设这个方法会报"unchecked"错误，那么这个错误会被隐藏。
+	@Deprecated                       // 标注这个方法被弃用了，即不建议调用此方法。
+	@SuppressWarnings("unchecked")    // 隐藏"unchecked"错误。
+	public static void method() {     // 假设这个方法会报"unchecked"错误，那么这个错误会被隐藏。
 		foo.bar1();
 		foo.bar2();
     }
@@ -75,11 +75,11 @@ public class MyClass {
 其中 [`FieldInfo ↗`](test/annotation/FieldInfo.java) 用于标注字段，解释如下：
 
 ```java
-@Target(ElementType.FIELD) // 标注这个注解类只能用于字段。
-@Retention(RetentionPolicy.RUNTIME) // 标注这个注解类在运行时可以被反射。
+@Target(ElementType.FIELD)             // 标注这个注解类只能用于字段。
+@Retention(RetentionPolicy.RUNTIME)    // 标注这个注解类在运行时可以被反射。
 public @interface FieldInfo {
-	String id(); // 必填字段。
-	String name() default ""; // 非必填字段，默认值为空字符串。
+	String id();                 // 必填字段。
+	String name() default "";    // 非必填字段，默认值为空字符串。
 }
 ```
 
@@ -88,11 +88,11 @@ public @interface FieldInfo {
 其中 [`Silent ↗`](test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段。解释如下：
 
 ```java
-@Target({
-        ElementType.FIELD, // 标注这个注解类可以用于字段。
-        ElementType.METHOD, // 标注这个注解类可以用于方法。
-}) // 可以用数组标注多个类型属性。
-@Retention(RetentionPolicy.RUNTIME) // 标注这个注解类在运行时可以被反射。
+@Target({    // 可以用数组标注多个类型属性。
+        ElementType.FIELD,     // 标注这个注解类可以用于字段。
+        ElementType.METHOD,    // 标注这个注解类可以用于方法。
+})
+@Retention(RetentionPolicy.RUNTIME)    // 标注这个注解类在运行时可以被反射。
 public @interface Silent {
 	// 这个注解类没有实际内容，只是用于标注。
 }
@@ -192,14 +192,14 @@ public class Test {
 
 ```java
 public class Test {
-	public static void iteratorAnnotations(Method method /* 传入方法 */) {
-		if (method.isAnnotationPresent(Silent.class) /* 判断方法是否被 @Silent 注解，如果是则为真。 */) {
+	public static void iteratorAnnotations(Method method /* 传入方法 */ ) {
+		if (method.isAnnotationPresent(Silent.class) /* 判断方法是否被 @Silent 注解，如果是则为真。 */ ) {
 			// 如果方法前或方法的返回类型被 @Silent 注解，则不进行解析。
 			System.out.println("::silent method::\n");
 			return;
 		}
 
-		if (method.isAnnotationPresent(MethodInfo.class) /* 判断方法前是否被 @MethodInfo 注解，如果是则为真。 */) {
+		if (method.isAnnotationPresent(MethodInfo.class) /* 判断方法前是否被 @MethodInfo 注解，如果是则为真。 */ ) {
 			// 获取 @MethodInfo 注解。
 			MethodInfo methodInfo = method.getAnnotation(MethodInfo.class);
 			// 打印注解中的 id 和 name 属性值。
@@ -233,14 +233,14 @@ public class Test {
 
 ```java
 public class Test {
-	public static void iteratorAnnotations(Field field /* 传入字段 */) {
-		if (field.isAnnotationPresent(Silent.class) /* 判断字段是否被 @Silent 注解，如果是则为真。 */) {
+	public static void iteratorAnnotations(Field field /* 传入字段 */ ) {
+		if (field.isAnnotationPresent(Silent.class) /* 判断字段是否被 @Silent 注解，如果是则为真。 */ ) {
 			// 如果字段前或字段类型被 @Silent 注解，则不进行解析。
 			System.out.println("::silent field::\n");
 			return;
 		}
 
-		if (field.isAnnotationPresent(FieldInfo.class) /* 判断字段前是否被 @FieldInfo 注解，如果是则为真。 */) {
+		if (field.isAnnotationPresent(FieldInfo.class) /* 判断字段前是否被 @FieldInfo 注解，如果是则为真。 */ ) {
 			// 获取FieldInfo注解。
 			FieldInfo fieldInfo = field.getAnnotation(FieldInfo.class);
 			// 打印。

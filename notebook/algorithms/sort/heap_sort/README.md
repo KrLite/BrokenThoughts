@@ -249,7 +249,7 @@ def heap_sort(arr: list) -> list:
 	build_max_heap(arr)
 
 	for(i) in range(len(arr) - 1, 0, -1): # 从最后一个元素开始，逐个向前交换
-		swap(arr, 0, i)    # 将堆中的根节点（数组中的最大值）交换到最后
+		swap(arr, 0, i)    # 将堆中的根节点（堆所含数组元素中的最大值）交换到最后
 		arrLen -= 1        # 最大值归位，堆长度减一
 		heapify(arr, 0)    # 对新的根节点进行 heapify 操作
 
