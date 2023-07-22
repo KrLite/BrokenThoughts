@@ -2,4 +2,4 @@
 
 # 业余画作
 
-> **[時の影 `头像` `2023/6/22` `→`](avatars/tokinokage)**
+> **[時の影 `头像` `2023/6/22`&emsp;`→`](avatars/tokinokage)**
