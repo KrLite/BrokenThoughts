@@ -8,6 +8,8 @@
 
 > **[基础排序算法集合&emsp;`→`](general)**
 > - 选择排序 `Selection Sort`
+> - 冒泡排序 `Bubble Sort`
+> - 插入排序 `Insertion Sort`
 
 
 ### 稳定排序算法
