@@ -4,8 +4,8 @@
 
 ### 语言探索
 
-> **[Java `→`](languages/java)**
+> **[Java&emsp;`→`](languages/java)**
 
 ### 算法知识
 
-> **[排序算法 `Python 实现` `→`](algorithms/sort)**
+> **[排序算法 `Python 实现`&emsp;`→`](algorithms/sort)**
