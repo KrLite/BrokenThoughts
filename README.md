@@ -1,6 +1,6 @@
-# Broken Thoughts<br /><blockquote>一些可有可无的故事[^issues]</blockquote>
+# Broken Thoughts<br /><blockquote>一些可有可无的故事</blockquote>
 
-###### 在这里，你可以找到我的：
+###### 在这里，你可以找到我的：[^issues]
 
 ### [学习笔记&emsp;`→`](notebook)
 
