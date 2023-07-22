@@ -2,10 +2,10 @@
 
 # 学习笔记
 
-## 语言探索
+### 语言探索
 
-### [Java `→`](languages/java)
+> **[Java `→`](languages/java)**
 
-## 算法知识
+### 算法知识
 
-### [排序算法 `Python 实现` `→`](algorithms/sort)
+> **[排序算法 `Python 实现` `→`](algorithms/sort)**
