@@ -39,6 +39,7 @@ jobs:
 
           pipenv install mkdocs
           pipenv install mkdocs-material
+          pipenv install mkdocs-mermaid2-plugin
 
       - name: Build mkdocs
         run: pipenv run mkdocs build -v

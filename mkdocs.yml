@@ -95,6 +95,11 @@ extra_javascript:
 extra_css:
   - 'stylesheets/css/extra.css?v=14'
 
+# Plugins
+plugins:
+  - search
+  - mermaid2
+
 # Extensions
 markdown_extensions:
   - admonition
