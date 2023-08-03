@@ -19,7 +19,7 @@ nav:
     - 算法知识:
       - 排序算法: notebook/algorithms/sort
   - 涂鸦:
-    - 時の影: notebook/doddles/avatars/tokinokage
+    - 時の影: doddles/avatars/tokinokage
 
 # Theme
 theme:
