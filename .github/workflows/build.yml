@@ -41,7 +41,7 @@ jobs:
         run: yarn --frozen-lockfile --production
       - name: Page Build
         run: |
-          # ./scripts/pre-build/pre-build.sh
+          ./scripts/pre-build/pre-build.sh
           pipenv run mkdocs build -v
       - name: Post-process HTML
         run: yarn ts-node-esm scripts/post-build/html-postprocess.ts commits-info math
