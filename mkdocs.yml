@@ -93,7 +93,7 @@ extra_javascript:
   # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml
 
 extra_css:
-  - '_static/css/extra.css?v=14'
+  # - '_static/css/extra.css?v=14'
 
 # Extensions
 markdown_extensions:
