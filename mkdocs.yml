@@ -36,7 +36,7 @@ theme:
       accent: indigo
       toggle:
         icon: material/octagram
-        name: 暗色模式
+        name: 切换至暗色模式
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
@@ -45,7 +45,7 @@ theme:
       accent: indigo
       toggle:
         icon: material/octagram-outline
-        name: 亮色模式
+        name: 切换至亮色模式
   include_search_page: false
   search_index_only: true
   font:
@@ -85,7 +85,7 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
 # Customization
 extra_javascript:
-  - '_static/js/math-csr.js?math-csr'
+  # - '_static/js/math-csr.js?math-csr'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
   # - '_static/js/reload_on_navigation'
   # - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
