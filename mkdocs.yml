@@ -52,13 +52,13 @@ theme:
     - content.action.view
     - content.code.annotate
     - content.code.copy
-    # - content.code.select
-    # - content.tabs.link
+    - content.code.select
+    - content.tabs.link
     - content.tooltips
     # - header.autohide
-    # - navigation.expand
+    - navigation.expand
     - navigation.footer
-    # - navigation.indexes
+    - navigation.indexes
     # - navigation.instant
     # - navigation.prune
     - navigation.sections
@@ -70,7 +70,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-    # - toc.integrate
+    - toc.integrate
 
 # Repository
 repo_url: https://github.com/KrLite/BrokenThoughts/
