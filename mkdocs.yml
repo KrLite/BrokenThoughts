@@ -1,0 +1,31 @@
+# Project Information
+site_name: 一些可有可无的故事
+theme:
+  name: null
+  custom_dir: 'mkdocs-material/material'
+  language: zh
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+# Repository
+site_url: https://krlite.github.io/BrokenThoughts/
+repo_url: https://github.com/KrLite/BrokenThoughts/
+
+# Copyright
+copyright: 'Copyright &copy; 2022 - 2023 KrLite'
