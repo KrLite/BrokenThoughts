@@ -17,16 +17,24 @@ concurrency:
 
 jobs:
   build:
-    name: Deploy docs
+    name: Deploy Docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      
-      - name: Install Python Markdown Math
-        run: pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4.7.0
+        
+      - name: Create Virtual Environment
+        run: python -m venv myenv
+        
+      - name: Activate Virtual Environment and Install Dependencies
+        run: |
+          source myenv/bin/activate
+          pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
 
-      - name: Deploy docs
+      - name: Deploy Docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
