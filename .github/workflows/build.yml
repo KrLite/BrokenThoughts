@@ -39,11 +39,9 @@ jobs:
           
           pipenv install mkdocs
           pipenv install mkdocs-material
-          pipenv install python-markdown-math
           
       - name: Page Build
-        run: |
-          pipenv run mkdocs build -v
+        run: pipenv run mkdocs build -v
 
       - name: Setup pages
         uses: actions/configure-pages@v3
