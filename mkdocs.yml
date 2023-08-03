@@ -44,8 +44,8 @@ theme:
         icon: material/octagram-outline
         name: 亮色模式
   font:
-    text: 'Helvetica Neue'
-    code: 'Consolas'
+    text: 'Source Sans'
+    code: 'JetBrains Mono'
 
 # Repository
 repo_url: https://github.com/KrLite/BrokenThoughts/
