@@ -86,8 +86,8 @@ theme:
     - toc.integrate
 
 # Repository
-repo_url: https://github.com/KrLite/Material-Perfection/
-repo_name: KrLite/Material-Perfection
+repo_url: https://github.com/KrLite/BrokenThoughts/
+repo_name: KrLite/BrokenThoughts
 
 # Copyright
 copyright: 'Copyright &copy; 2022 - 2023 KrLite'
