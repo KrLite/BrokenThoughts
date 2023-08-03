@@ -1,6 +1,6 @@
 .idea/
 out/
-mkdocs-material/
+
 
 *.DS_Store
 *.iml/

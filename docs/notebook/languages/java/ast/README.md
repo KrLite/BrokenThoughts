@@ -1,3 +1,3 @@
-### [`←` Java](/notebook/java)
+### [`←` Java](..)
 
 # 抽象语法树 `Abstract Syntax Tree`

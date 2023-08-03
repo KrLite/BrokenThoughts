@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Broken Thoughts<br /><blockquote>一些可有可无的故事</blockquote>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+###### 在这里，你可以找到我的：[^issues]
 
-## Commands
+### [学习笔记&emsp;`→`](notebook)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### [涂鸦&emsp;`→`](doddles)
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[^issues]: 如果你发现了其中的某些知识性错误，[请随时为我指出！](https://github.com/KrLite/BrokenThoughts/issues)
