@@ -63,8 +63,8 @@ theme:
     # - header.autohide
     - navigation.expand
     - navigation.footer
-    # - navigation.indexes
-    - navigation.instant
+    - navigation.indexes
+    # - navigation.instant # Do not activate. Will break markdown math renderer.
     - navigation.prune
     - navigation.sections
     - navigation.tabs
@@ -86,14 +86,6 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 # Customization
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
-  # - '_static/js/math-csr.js?math-csr'
-  # - '_static/js/reload_on_navigation'
-  # - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
-  # - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml
-
-extra_css:
-  # - '_static/css/extra.css?v=14'
 
 # Extensions
 markdown_extensions:
@@ -107,7 +99,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
-      smart_enable: all
+     smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
@@ -119,17 +111,17 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
-  # - pymdownx.snippets:
-  #     check_paths: true
-  # - pymdownx.progressbar
-  # - pymdownx.smartsymbols
-  # - pymdownx.superfences:
-  #     custom_fences:
-  #       - name: math
-  #         class: arithmatex
-  #         format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
-  # - pymdownx.tasklist:
-  #     custom_checkbox: true
-  # - pymdownx.tilde
-  # - pymdownx.tabbed:
-  #     alternate_style: true
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
