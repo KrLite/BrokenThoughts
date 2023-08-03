@@ -1,0 +1,58 @@
+/*
+CSS file to change the fonts.
+By KrLite(https://github.com/KrLite).
+ */
+
+/* Custom font family */
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("./font/OPPOSans-R.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("./font/OPPOSans-L.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("./font/OPPOSans-M.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("./font/OPPOSans-B.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("./font/OPPOSans-H.ttf");
+  font-weight: 900;
+}
+
+:root {
+  --md-text-font: "Oppo Sans";
+  /*
+  --md-code-font: "Oppo Sans"
+   */
+}
+
+/* Bold Hhadings */
+h1 {
+  font-weight: 900 !important;
+}
+
+h2,
+h3 {
+  font-weight: bold !important;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: normal !important;
+}

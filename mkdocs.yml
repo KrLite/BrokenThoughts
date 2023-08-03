@@ -1,34 +1,17 @@
 # Project Information
-site_name: 一些可有可无的故事
-site_url: https://krlite.github.io/BrokenThoughts/
+site_name: Material Perfection
+site_url: https://krlite.github.io/Material-Perfection/
 strict: false
 
 # Contents
 nav:
   - 主页: index.md
-  - 学习笔记:
-    - 杂谈: notebook/index.md
-    - 语言探索:
-      - Java:
-        - 类:
-          - 注解: notebook/languages/java/annotation.md
-        - 语法:
-          - 流式处理: notebook/languages/java/stream.md
-          - Lambda 表达式: notebook/languages/java/lambda.md
-        - 程序设计:
-          - 抽象语法树: notebook/languages/java/ast.md
-    - 算法知识:
-      - 排序算法:
-        - 基础排序算法集合: notebook/algorithms/sort/general.md
-        - 堆排序: notebook/algorithms/sort/heap_sort.md
-  - 涂鸦:
-    - 時の影: doddles/avatars/tokinokage.md
 
 # Theme
 theme:
   name: material
-  language: zh
-  favicon: 'favicon.png'
+  language: en
+  favicon: favicon.png
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -37,7 +20,7 @@ theme:
       accent: teal
       toggle:
         icon: material/octagram
-        name: 切换至暗色模式
+        name: Switch to dark mode
 
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
@@ -46,12 +29,16 @@ theme:
       accent: teal
       toggle:
         icon: material/octagram-outline
-        name: 切换至亮色模式
+        name: Switch to light mode
   include_search_page: false
   search_index_only: true
+
+  # Tips: Relative paths can navigate to svgs under path 'mkdocs-material/material/.icons'
   icon:
-    logo: 'material/micro-sd'
-    repo: 'material/function'
+    logo: logo
+    repo: material/github-alt
+
+  # Tips: currently, the text font is set under 'stylesheets/css/font.css'
   font:
     # text: 'Source Sans'
     code: 'JetBrains Mono'
@@ -82,18 +69,21 @@ theme:
     - toc.integrate
 
 # Repository
-repo_url: https://github.com/KrLite/BrokenThoughts/
-repo_name: KrLite/BrokenThoughts
+repo_url: https://github.com/KrLite/Material-Perfection/
+repo_name: KrLite/Material-Perfection
 
 # Copyright
 copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
 # Customization
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML' # Markdown math resolver
 
 extra_css:
-  - 'stylesheets/css/extra.css?v=14'
+  - 'stylesheets/css/extra.css?v=14' # Optimize general appearances
+  - 'stylesheets/css/font.css?v=14' # Change the fonts
+  - 'stylesheets/css/colored_headings.css?v=14' # Color the headings
+  - 'stylesheets/css/oi_wiki.css?v=14' # CSS file from OI Wiki(https://github.com/OI-wiki/OI-wiki)
 
 # Plugins
 plugins:
