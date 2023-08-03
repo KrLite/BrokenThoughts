@@ -1,5 +1,3 @@
-### [`←` Java](..)
-
 # Lambda 表达式 `λ Expressions`
 
 `Java 8 Api` **`重要特性`**

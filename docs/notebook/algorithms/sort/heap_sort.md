@@ -1,11 +1,9 @@
-### [`←` 排序算法](/notebook/algorithms/sort)
-
 # 堆排序 `Heap Sort`
 
 - `时间复杂度` $\Theta(n\log_{}{n})$
 - `难度` ★★☆☆☆
 
-[`↗ 代码实现`](heap_sort.py)
+[`↗ 代码实现`](heap_sort/heap_sort.py)
 
 堆排序是一种不稳定排序算法。
 

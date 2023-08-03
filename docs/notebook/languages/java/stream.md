@@ -1,5 +1,3 @@
-### [`←` Java](..)
-
 # 流式处理 `Stream Processing`
 
 `Java 8 Api`

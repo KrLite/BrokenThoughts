@@ -1,8 +1,6 @@
-### [`←` 排序算法](/notebook/algorithms/sort)
-
 # 基础排序算法集合
 
-[`↗ 代码实现`](general.py)
+[`↗ 代码实现`](general/general.py)
 
 ## 选择排序 `Selection Sort`
 

@@ -7,19 +7,22 @@ strict: false
 nav:
   - 主页: index.md
   - 学习笔记:
+    - 杂谈: notebook/index.md
     - 语言探索:
       - Java:
         - 类:
-          - 注解: notebook/languages/java/annotation
+          - 注解: notebook/languages/java/annotation.md
         - 语法:
-          - 流式处理: notebook/languages/java/stream
-          - Lambda 表达式: notebook/languages/java/lambda
+          - 流式处理: notebook/languages/java/stream.md
+          - Lambda 表达式: notebook/languages/java/lambda.md
         - 程序设计:
-          - 抽象语法树: notebook/languages/java/ast
+          - 抽象语法树: notebook/languages/java/ast.md
     - 算法知识:
-      - 排序算法: notebook/algorithms/sort
+      - 排序算法:
+        - 基础排序算法集合: notebook/algorithms/sort/general.md
+        - 堆排序: notebook/algorithms/sort/heap_sort.md
   - 涂鸦:
-    - 時の影: doddles/avatars/tokinokage
+    - 時の影: doddles/avatars/tokinokage.md
 
 # Theme
 theme:
@@ -43,6 +46,8 @@ theme:
       toggle:
         icon: material/octagram-outline
         name: 亮色模式
+  include_search_page: false
+  search_index_only: true
   font:
     text: 'Source Sans'
     code: 'JetBrains Mono'
@@ -58,9 +63,9 @@ theme:
     # - header.autohide
     - navigation.expand
     - navigation.footer
-    - navigation.indexes
-    # - navigation.instant
-    # - navigation.prune
+    # - navigation.indexes
+    - navigation.instant
+    - navigation.prune
     - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -78,11 +83,21 @@ repo_url: https://github.com/KrLite/BrokenThoughts/
 # Copyright
 copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
+# Customization
+extra_javascript:
+  - '_static/js/math-csr.js?math-csr'
+  # - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra_css:
+  - '_static/css/extra.css?v=14'
+
 # Extensions
 markdown_extensions:
   - admonition
   - def_list
   - footnotes
+  - mdx_math
   - meta
   - toc:
       permalink: ""

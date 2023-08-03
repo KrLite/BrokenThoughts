@@ -4,7 +4,7 @@ package java.lang.annotation;
 
 # RetentionPolicy.class
 
-`RetentionPolicy.class`是一个枚举类，存储了用于定义[注解 ↗](README.md)策略属性的枚举常量。
+`RetentionPolicy.class`是一个枚举类，存储了用于定义[注解 ↗](../annotation.md)策略属性的枚举常量。
 
 ## 枚举常量
 
