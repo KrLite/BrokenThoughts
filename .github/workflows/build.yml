@@ -36,6 +36,7 @@ jobs:
           curl https://github.com/mitya57/python-markdown-math/archive/master.zip
           pipenv install
           pipenv install mkdocs
+          pipenv install pymdown-extension
           
       - name: Page Build
         run: |
