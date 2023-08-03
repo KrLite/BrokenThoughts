@@ -179,8 +179,8 @@ graph TD
 	10 --- 3
 	8 --- 2
 	8 --- 4
-	style 1 fill:#fcd,stroke:#f68
-	style 14 fill:#fcd,stroke:#f68
+	style 1 stroke:#f68
+	style 14 stroke:#f68
 	style 16 fill:#f68,stroke-width:0px
 ```
 
@@ -206,8 +206,8 @@ graph TD
 	10 --- 3
 	1 --- 2
 	1 --- 4
-	style 1 fill:#fcd,stroke:#f68
-	style 8 fill:#fcd,stroke:#f68
+	style 1 stroke:#f68
+	style 8 stroke:#f68
 	style 16 fill:#f68,stroke-width:0px
 ```
 
@@ -233,8 +233,8 @@ graph TD
 	10 --- 3
 	2 <-.-> 1
 	2 --- 4
-	style 1 fill:#fcd,stroke:#f68
-	style 2 fill:#fcd,stroke:#f68
+	style 1 stroke:#f68
+	style 2 stroke:#f68
 	style 16 fill:#f68,stroke-width:0px
 ```
 
