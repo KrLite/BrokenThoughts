@@ -89,7 +89,7 @@ extra_javascript:
   # - '_static/js/reload_on_navigation'
   # - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
   # - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml
 
 extra_css:
   - '_static/css/extra.css?v=14'
@@ -100,7 +100,7 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  # - mdx_math
+  - mdx_math
   - meta
   - toc:
       permalink: ""
