@@ -36,7 +36,7 @@ jobs:
           
           pipenv install mkdocs
           pipenv install mkdocs-material
-          pipenv install https://github.com/mitya57/python-markdown-math/archive/master.zip
+          pipenv install python-markdown-math
           
       - name: Page Build
         run: |
