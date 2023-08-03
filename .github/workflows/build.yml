@@ -33,11 +33,10 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python3
           pipenv install
-          curl https://github.com/mitya57/python-markdown-math/archive/master.zip
-          pipenv install
+          
           pipenv install mkdocs
           pipenv install mkdocs-material
-          pipenv install pymdown-extensions
+          pipenv install https://github.com/mitya57/python-markdown-math/archive/master.zip
           
       - name: Page Build
         run: |
