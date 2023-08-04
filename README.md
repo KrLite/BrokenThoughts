@@ -1,9 +1,12 @@
-# Broken Thoughts<br /><blockquote>一些可有可无的故事</blockquote>
+# 一些可有可无的故事
 
-###### 在这里，你可以找到我的：[^issues]
-
-### [学习笔记&emsp;`→`](docs/notebook)
-
-### [涂鸦&emsp;`→`](docs/doddles)
-
-[^issues]: 如果你发现了其中的某些知识性错误，[请随时为我指出！](https://github.com/KrLite/BrokenThoughts/issues)
+<h6>
+    <i>
+      我本来想在冬日里死去的。可是，有人送了我一套鼠灰色细条纹的麻质衣服作为新年礼物。
+      <br />
+      <br />
+      你知道吗？那是适合夏天穿的衣服，所以，那我还是先活到夏天吧。
+      <br />
+      <div align="right"><sub>——《人间失格》</sub></div>
+    </i>
+</h6>
