@@ -3,15 +3,37 @@ CSS file to control global colors
  */
 
 :root {
-  /* Tips: Use #XXXXXX to define a hex color */
-  --md-primary-fg-color:               teal;
-  --md-primary-fg-color--light:        teal;
-  --md-primary-fg-color--dark:         turquoise;
-  --md-primary-bg-color:               white;
-  --md-primary-bg-color--light:        rgba(white, 0.7);
+  --custom-primary-color: teal;
+  --custom-secondary-color: turquoise;
+}
 
-  --md-accent-fg-color:                turquoise;
-  --md-accent-fg-color--transparent:   rgba(var(--md-accent-fg-color), 0.1);
-  --md-accent-bg-color:                white;
-  --md-accent-bg-color--light:         rgba(white, 0.7);
+:root {
+  /* Tips: Use #XXXXXX to define a hex color */
+  --md-primary-fg-color: var(--custom-primary-color);
+  --md-primary-fg-color--light: var(--custom-primary-color);
+  --md-primary-fg-color--dark: var(--custom-secondary-color);
+  --md-primary-bg-color: white;
+  --md-primary-bg-color--light: rgba(white, 0.7);
+
+  --md-accent-fg-color: var(--custom-secondary-color);
+  --md-accent-fg-color--transparent: rgba(var(--md-accent-fg-color), 0.1);
+  --md-accent-bg-color: white;
+  --md-accent-bg-color--light: rgba(white, 0.7);
+}
+
+[data-md-color-scheme="default"] {
+  --md-accent-fg-color: var(--md-primary-fg-color--dark);
+  --md-typeset-a-color: var(--md-primary-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color: var(--md-primary-fg-color--light);
+  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+}
+
+.pixel {
+  display: inline-block;
+  background-color: #000;
+  width: 50px;
+  height: 50px;
 }
