@@ -2,7 +2,8 @@
 
 ??? quote ""
 
-    &emsp;
+    Why?
+
     <h6>
       “
       <br />
