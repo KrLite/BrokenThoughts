@@ -6,7 +6,7 @@ strict: false
 # Contents
 nav:
   - 主页: index.md
-  - 学习笔记:
+  - 笔记:
     - 杂谈: notebook/index.md
     - 语言探索:
       - Java:
@@ -123,6 +123,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
   - pymdownx.highlight:
       linenums: true
   - pymdownx.inlinehilite

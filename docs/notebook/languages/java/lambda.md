@@ -2,21 +2,14 @@
 
 `Java 8 Api` **`重要特性`**
 
-<div class="annotate" markdown>
+Lambda 表达式 (1) 是推动 Java 8 发布的重要特性，它允许把函数作为一个方法的参数，或者说可以将函数作为参数传递进方法中。
+{ .annotate }
 
-> Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-
-</div>
-
-1.  :man_raising_hand: I'm an annotation!
-
-Lambda 表达式 (1) 是推动 Java 8 发布的重要特性，它允许把函数作为一个方法的参数，或者说可以将函数作为参数传递进方法中。 { .annotate }
+1.  Lambda 表达式，又称闭包。它是一个匿名函数，可以将代码像数据一样进行传递。
 
 使用 Lambda 表达式可以使代码变得更加简洁紧凑。
 
-1.  :Lambda 表达式，又称闭包。它是一个匿名函数，可以将代码像数据一样进行传递。
-
-## 1. 语法
+## 1&emsp;语法
 
 Lambda 表达式看起来是这样的：
 
@@ -51,9 +44,11 @@ public interface Function<T, R> {
 
 这种接口之所以只能有一个抽象方法，是因为在书写 Lambda 表达式的时候，我们会忽略方法名，只关注方法体。如果有多个抽象方法就会产生歧义，不知道到底应该调用哪个了。
 
-## 0. 闭包 (1) { .annotate }
+<div class="annotate">
+  <h2>$&emsp;闭包 (1)</h2>
+</div>
 
-1.  :Closure。它是一种能被调用对象，保存了创建它的作用域的信息。
+1.  Closure。它是一种能被调用对象，保存了创建它的作用域的信息。
 
 了解闭包的概念可以帮助你理解 Lambda 表达式的结构和内涵。
 
@@ -115,7 +110,7 @@ public class Closure {
     }
     ```
 
-## 2. 原理
+## 2&emsp;原理
 
 Lambda 表达式是一步步简化而得来的，它的原理是匿名内部类。假设这里有一个 `Operation` 接口：
 
@@ -126,7 +121,7 @@ public interface Operation {
 }
 ```
 
-如果我们要实现如上接口的 `calculate` 抽象方法，并在类中投入使用，下面是最原始的写法：
+如果我们要实现如上接口的 `calculate` 抽象方法：
 
 ```java
 public class Calculator {
@@ -143,7 +138,7 @@ public class Calculator {
 }
 ```
 
-但这有点啰嗦，让我们用基础的 Lambda 表达式写法简化一下。不要害怕，你会发现这很符合直觉：
+但这有点啰嗦，让我们用基础的 Lambda 表达式写法简化一下，你会发现这很符合直觉：
 
 ```java
 public class Calculator {
@@ -185,26 +180,28 @@ public class Calculator {
 }
 ```
 
-注意，当 Lambda 表达式的方法体只有一行代码时，才可以省略大括号，但是如果有多行代码，则必须要有大括号。
+!!! warning
+
+    当 Lambda 表达式的方法体只有一条语句时，才可以省略大括号。如果有多条语句，则不能省略。
 
 最后，让我们观察一下实现相同功能时，使用 Lambda 表达式前后的代码块变化：
 
-`匿名内部类：`
+=== "匿名内部类"
 
-```java
-Operation add = new Operation() {
-    @Override
-    public int calculate(int a, int b) {
-        return a + b;
-    }
-};
-```
+    ```java
+    Operation add = new Operation() {
+        @Override
+        public int calculate(int a, int b) {
+            return a + b;
+        }
+    };
+    ```
 
-`Lambda 表达式：`
+=== "Lambda 表达式"
 
-```java
-Operation add = (a, b) -> a + b;
-```
+    ```java
+    Operation add = (a, b) -> a + b;
+    ```
 
 是不是很神奇？可以看到，Lambda 表达式的写法明显简洁了许多，且更加符合直觉。
 
@@ -215,16 +212,16 @@ public class Calculator {
     public static void main(String[] args) {
         Operation add = (a, b) -> System.out.println(a + b);    // 结构相同。
 
-        add.calculate(1, 2);    // 结果为：3。
+        add.calculate(1, 2);    // 打印结果为：3。
     }
 }
 ```
 
-## 3. 使用
+## 3&emsp;使用
 
-### 3.1. 作为参数
+### 3.1&emsp;作为参数
 
-Lambda 表达式可以作为参数传递给方法，或者作为方法的返回值。这种传递行为称为 `函数式编程` 。
+Lambda 表达式可以作为参数传递给方法，或者作为方法的返回值。这种传递行为称为 **函数式编程** 。
 
 让我们看一个例子，我们有一个 `Operation` 接口，它有一个 `calculate` 方法，该方法接受两个整型参数，并返回一个整型结果。我们可以使用 Lambda 表达式来实现 `Operation` 接口，然后将 Lambda 表达式作为参数传递给 `calculate` 方法：
 
@@ -252,23 +249,27 @@ public class Calculator {
 }
 ```
 
-### 3.2. 方法引用
+### 3.2&emsp;方法引用
 
-Lambda 表达式的写法总是让人惊讶，因为你不知道它们会长得多么奇形怪状：
+Lambda 表达式总是奇形怪状：
 
 ```java
 Consumer<String> printer = System.out::println;
 ```
 
-`::` 又是一种从来没见过的语法！这种语法称为 `方法引用` ，它的作用是引用已经存在的方法。在上面的例子中，`System.out::println` 与 `System.out.println` 是等价的。方法引用可以在一些时候缩短代码，但是它们可能会让代码变得更加难以理解。下面是上方代码不使用方法引用时的样子：
+`::` 是什么？又是一种从来没有见过的语法！这种语法称为 **方法引用** ，它的作用就是进一步缩短语句长度，但也可能会让代码变得更加难以理解。在上面的例子中，`System.out::println` 与 `System.out.println()` **在效果上** 是等价的。下面是上方代码不使用方法引用时的样子：
 
 ```java
 Consumer<String> printer = (s) -> System.out.println(s);
 ```
 
-稍稍简便了一些，是吧？
+使用方法引用的代码稍稍简便了一些，对吧？
 
-其实方法引用也有更大的用处。它支持的写法有这些：
+!!! danger "方法引用的缺陷"
+
+    以上两种写法 **在效果上** 等价，但 **在过程上** 并不完全等价。具体来说，方法引用可能会额外生成对象，这在一些时候可能会导致莫名其妙的崩溃。
+
+方法引用总共支持这些语法：
 
 ```java
 对象::实例方法
@@ -284,7 +285,7 @@ Consumer<String> printer = (s) -> System.out.println(s);
 
 让我们来看看这些写法的具体用法。
 
-#### 对象::实例方法
+#### `对象::实例方法`
 
 `对象::实例方法` 的写法可以让你引用一个对象的实例方法。例如，我们可以使用 `String::length` 来引用 `String` 类的 `length` 方法：
 
@@ -304,9 +305,11 @@ public class Calculator {
 
 因为 `forEach` 和 `println` 方法的参数列表相同，且都无返回值，所以我们可以使用 `System.out::println` 来引用 `println` 方法，省去了传递参数的中间过程。
 
-> 如果你不了解什么是 `forEach` ，可以去看看我的 [`流式处理 ↗`](/notebook/java/stream) 学习笔记。
+???+ tip
 
-#### 类::静态方法
+    如果你还不了解什么是 `forEach` ，可以去看看我的 [`流式处理 ↗`](/notebook/java/stream) 笔记。
+
+#### `类::静态方法`
 
 `类::静态方法` 的写法可以让你引用一个类的静态方法。例如，我们可以使用 `Math::pow` 来引用 `Math` 类的 `pow` 静态方法：
 
@@ -319,7 +322,7 @@ public class Calculator {
 }
 ```
 
-#### 类::实例方法
+#### `类::实例方法`
 
 `类::实例方法` 的写法则可以让你引用一个类的实例方法。例如， `String` 类的 `length` 并不是一个静态方法，但我们可以在合适的时机使用 `String::length` 来引用它：
 
