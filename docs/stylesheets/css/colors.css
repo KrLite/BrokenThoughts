@@ -1,0 +1,17 @@
+/*
+CSS file to control global colors
+ */
+
+:root {
+  /* Tips: Use #XXXXXX to define a hex color */
+  --md-primary-fg-color:               teal;
+  --md-primary-fg-color--light:        teal;
+  --md-primary-fg-color--dark:         turquoise;
+  --md-primary-bg-color:               white;
+  --md-primary-bg-color--light:        rgba(white, 0.7);
+
+  --md-accent-fg-color:                turquoise;
+  --md-accent-fg-color--transparent:   rgba(var(--md-accent-fg-color), 0.1);
+  --md-accent-bg-color:                white;
+  --md-accent-bg-color--light:         rgba(white, 0.7);
+}

@@ -10,7 +10,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: teal;
+  color: var(--md-primary-fg-color);
 }
 
 h1 code,
@@ -19,7 +19,7 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  color: teal;
+  color: var(--md-primary-fg-color);
 }
 
 /* Color for headings in light scheme */
@@ -29,7 +29,7 @@ h6 code {
 [data-md-color-scheme="default"] h4,
 [data-md-color-scheme="default"] h5,
 [data-md-color-scheme="default"] h6 {
-  color: teal;
+  color: var(--md-primary-fg-color--light);
 }
 
 [data-md-color-scheme="default"] h1 code,
@@ -38,7 +38,7 @@ h6 code {
 [data-md-color-scheme="default"] h4 code,
 [data-md-color-scheme="default"] h5 code,
 [data-md-color-scheme="default"] h6 code {
-  color: teal;
+  color: var(--md-primary-fg-color--light);
 }
 
 /* Color for headings in dark scheme */
@@ -48,7 +48,7 @@ h6 code {
 [data-md-color-scheme="slate"] h4,
 [data-md-color-scheme="slate"] h5,
 [data-md-color-scheme="slate"] h6 {
-  color: turquoise;
+  color: var(--md-primary-fg-color--dark);
 }
 
 [data-md-color-scheme="slate"] h1 code,
@@ -57,5 +57,5 @@ h6 code {
 [data-md-color-scheme="slate"] h4 code,
 [data-md-color-scheme="slate"] h5 code,
 [data-md-color-scheme="slate"] h6 code {
-  color: turquoise;
+  color: var(--md-primary-fg-color--dark);
 }
