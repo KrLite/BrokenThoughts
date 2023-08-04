@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+mkdocs = "*"
+mkdocs-pymdownx-material-extras = "*"
+mkdocs-mermaid2-plugin = "*"
 
 [dev-packages]
 
