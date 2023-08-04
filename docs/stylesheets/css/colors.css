@@ -30,3 +30,27 @@ CSS file to control global colors
   --md-accent-fg-color: var(--md-primary-fg-color--light);
   --md-typeset-a-color: var(--md-primary-fg-color--dark);
 }
+
+/* Image color transformer */
+/* Credit: https://stackoverflow.com/a/76821538 */
+.colored {
+  display: inline-block;
+  background-color: var(--md-primary-fg-color);
+  -webkit-mask-size: 95%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+[data-md-color-scheme="default"] .colored {
+  background-color: var(--md-primary-fg-color--light);
+}
+
+[data-md-color-scheme="slate"] .colored {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+.colored > img {
+  opacity: 0;
+  width: auto;
+  display: block;
+}
