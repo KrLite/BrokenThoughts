@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="https://krlite/github.io/BrokenThoughts">
+  <a href="https://krlite.github.io/BrokenThoughts">
     <code>在网页上查看 →</code>
   </a>
 </p>
