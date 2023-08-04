@@ -1,14 +1,14 @@
 # 一些可有可无的故事
 
-??? note
+!!! quote ""
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-
-??? note "With Title"
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-
+    <i>
+      世界好小，我用两只脚就能走遍。
+      <br />
+      世界很大。我活了几百年见证世间喜怒哀乐，而这些树木和岩石，它们愿意花费几百个世纪。
+    </i>
+    <div align="right">
+      <i>
+        <sub>——某不愿透露姓名的幻想乡妖怪</sub>
+      </i>
+    </div>
