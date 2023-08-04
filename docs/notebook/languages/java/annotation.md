@@ -6,7 +6,7 @@
 
 [^注解]: Annotation，又称标注。
 
-## 1. 注解的定义
+## 1&emsp;注解的定义
 
 如下是对注解类的简单解释：
 
@@ -45,9 +45,9 @@ AnnotationClass {
 
 括号中的内容可以为 [`RetentionPolicy.class ↗`](annotation/RetentionPolicy.class.md) 中的枚举常量。
 
-## 2. 注解的使用
+## 2&emsp;注解的使用
 
-### 1. 编译检查
+### 2.1&emsp;编译检查
 
 注解可以用于编译检查，如下是一个简单的例子：
 
@@ -62,7 +62,7 @@ public class MyClass {
 }
 ```
 
-### 2. 在反射中使用注解
+### 2.2&emsp;在反射中使用注解
 
 注解可以用于反射，如下是 [`test ↗`](/test) 示例的简单解释：
 
