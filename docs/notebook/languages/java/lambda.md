@@ -85,27 +85,27 @@ public class Closure {
 
         public Action printAction(String msg) {
             return () -> {
-			    times++;
-			    System.out.println(msg + " " + times);
-		};
-	    }
+		times++;
+		System.out.println(msg + " " + times);
+	    };
+	}
     }
 
-interface Action {
-    void print();
-}
+    interface Action {
+        void print();
+    }
 
-public class Office {
-	public static void main(String[] args) {
-		Printer printer = new Printer();
-		Action action = printer.printAction("Hello: ");
+    public class Office {
+	    public static void main(String[] args) {
+		    Printer printer = new Printer();
+		    Action action = printer.printAction("Hello: ");
 
-		action.print();
-		action.print();
-		action.print();
-	}
-}
-```
+		    action.print();
+		    action.print();
+		    action.print();
+	    }
+    }
+    ```
 
 ## 2. 原理
 
