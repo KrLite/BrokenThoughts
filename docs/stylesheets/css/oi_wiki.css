@@ -32,10 +32,6 @@ details > summary + .highlight:last-child > .highlighttable {
   min-width: 0rem;
 }
 
-.headerlink {
-  transform: translateY(-2.5px);
-}
-
 .md-nav__link[for="__toc"] .md-icon {
   margin-left: auto !important;
 }
