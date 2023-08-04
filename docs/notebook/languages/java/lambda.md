@@ -65,29 +65,31 @@ public class Closure {
 }
 ```
 
-> 在这个例子中，`b` 就是一个自由变量，它不是 `doProcess` 方法的局部变量，但是它被 `main` 方法中的 Lambda 表达式所引用。
+!!! note ""
+
+    在这个例子中，`b` 就是一个自由变量，它不是 `doProcess` 方法的局部变量，但是它被 `main` 方法中的 Lambda 表达式所引用。
 
 - 闭包的价值在于可以作为函数对象或者匿名函数，持有上下文数据，作为第一级对象进行传递和保存。
 - 闭包广泛用于回调函数、函数式编程中。
 - 函数可以访问函数外部的变量，并且与它建立联系，可以修改变量和读取到外部对变量的修改。
 
-在这里给出闭包的一个简单使用示例：
+???+ example "使用示例"
 
-```java
-public class Printer {
-	private static int times;
+    ```java
+    public class Printer {
+        private static int times;
 
-	public Printer() {
-		times = 0;
-	}
+        public Printer() {
+            times = 0;
+        }
 
-	public Action printAction(String msg) {
-        return () -> {
-			times++;
-			System.out.println(msg + " " + times);
+        public Action printAction(String msg) {
+            return () -> {
+			    times++;
+			    System.out.println(msg + " " + times);
 		};
-	}
-}
+	    }
+    }
 
 interface Action {
     void print();
