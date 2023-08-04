@@ -95,14 +95,12 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 # Customization
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML' # Markdown math resolver
-  - 'stylesheets/js/color_convertor.js' # Color convertor
 
 extra_css:
   - 'stylesheets/css/extra.css?v=14' # Optimize general appearances
   - 'stylesheets/css/colors.css?v=14' # Control global colors
   - 'stylesheets/css/font.css?v=14' # Change the fonts
   - 'stylesheets/css/colored_headings.css?v=14' # Color the headings
-  - 'stylesheets/css/oi_wiki.css?v=14' # CSS file from OI Wiki(https://github.com/OI-wiki/OI-wiki)
 
 # Plugins
 plugins:
