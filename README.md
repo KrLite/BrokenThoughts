@@ -1,3 +1,9 @@
+<p align="right">
+  <a href="https://krlite/github.io/BrokenThoughts">
+    <code>在网页上查看 →</code>
+  </a>
+</p>
+
 # 一些可有可无的故事
 
 <h6>
