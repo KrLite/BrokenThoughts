@@ -2,11 +2,13 @@
 
 `Java 8 Api` **`重要特性`**
 
-Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-{ .annotate }
+<div class="annotate" markdown>
 
-1.  :man_raising_hand: I'm an annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be expressed in Markdown.
+> Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
+
+</div>
+
+1.  :man_raising_hand: I'm an annotation!
 
 Lambda 表达式 (1) 是推动 Java 8 发布的重要特性，它允许把函数作为一个方法的参数，或者说可以将函数作为参数传递进方法中。 { .annotate }
 
