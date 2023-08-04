@@ -37,10 +37,6 @@ jobs:
           curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python3
           pipenv install
 
-          pipenv install mkdocs
-          pipenv install mkdocs-material
-          pipenv install mkdocs-mermaid2-plugin
-
       - name: Build mkdocs
         run: pipenv run mkdocs build -v
 
