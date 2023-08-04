@@ -1,9 +1,20 @@
-# Broken Thoughts<br /><blockquote>一些可有可无的故事</blockquote>
+# 一些可有可无的故事
 
-###### 在这里，你可以找到我的：[^issues]
+??? quote ""
 
-### [学习笔记&emsp;`→`](notebook)
-
-### [涂鸦&emsp;`→`](doddles)
-
-[^issues]: 如果你发现了其中的某些知识性错误，[请随时为我指出！](https://github.com/KrLite/BrokenThoughts/issues)
+    <h6>
+      “
+      <br />
+      <i>
+        世界好小，我用两只脚就能走遍。
+        <br />
+        世界很大。我活了几百年见证世间喜怒哀乐，而这些树木和岩石，它们愿意花费几百个世纪。
+      </i>
+      &thinsp;
+      ”
+      <div align="right">
+        <i>
+          <sub>——某不愿透露姓名的幻想乡妖怪</sub>
+        </i>
+      </div>
+    </h6>
