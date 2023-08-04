@@ -9,12 +9,6 @@ details code {
   font-size: inherit !important;
 }
 
-/* Code block / tab in details */
-details > summary + .highlight:last-child,
-details > summary + .tabbed-set:last-child {
-  margin: 0 -0.6rem !important;
-}
-
 details > summary + .highlight:last-child > .highlighttable {
   margin: 0 !important;
 }
