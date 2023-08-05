@@ -3,8 +3,26 @@ CSS file to control global colors
  */
 
 :root {
-  --custom-primary-color: teal;
-  --custom-secondary-color: turquoise;
+  --custom-primary-color: rgb(0, 128, 128);
+  --custom-secondary-color: rgb(64, 244, 208);
+
+  --custom-primary-color--transparent: rgba(0, 128, 128, 0.1);
+  --custom-secondary-color--transparent: rgba(64, 244, 208, 0.1);
+}
+
+:root {
+  --md-primary-fg-color--auto: var(--md-primary-fg-color);
+  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color--auto: var(--md-primary-fg-color--light);
+  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color--dark);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color--auto: var(--md-primary-fg-color--dark);
+  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color--light);
 }
 
 :root {
@@ -12,13 +30,9 @@ CSS file to control global colors
   --md-primary-fg-color: var(--custom-primary-color);
   --md-primary-fg-color--light: var(--custom-primary-color);
   --md-primary-fg-color--dark: var(--custom-secondary-color);
-  --md-primary-bg-color: white;
-  --md-primary-bg-color--light: rgba(white, 0.7);
 
-  --md-accent-fg-color: var(--custom-secondary-color);
-  --md-accent-fg-color--transparent: rgba(var(--md-accent-fg-color), 0.1);
-  --md-accent-bg-color: white;
-  --md-accent-bg-color--light: rgba(white, 0.7);
+  --md-accent-fg-color: var(--custom-primary-accent-color);
+  --md-accent-fg-color--transparent: var(--custom-primary-color--transparent);
 }
 
 [data-md-color-scheme="default"] {
@@ -39,14 +53,6 @@ CSS file to control global colors
   -webkit-mask-size: 95%;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
-}
-
-[data-md-color-scheme="default"] .colored {
-  background-color: var(--md-primary-fg-color--light);
-}
-
-[data-md-color-scheme="slate"] .colored {
-  background-color: var(--md-primary-fg-color--dark);
 }
 
 .colored > img {

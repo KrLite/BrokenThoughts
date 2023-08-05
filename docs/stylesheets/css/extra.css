@@ -23,55 +23,20 @@ code {
 
 .md-typeset .admonition.colored-amt,
 .md-typeset details.colored-amt {
-  border-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color--auto);
 }
 
 .md-typeset .colored-amt > .admonition-title,
 .md-typeset .colored-amt > summary {
-  background-color: rgb(
-    from var(--md-primary-fg-color) r g b / 0.1
+  background-color: rgba(
+    var(--md-primary-fg-color--auto),
+    0.1
   ); /* Not yet supported by some browsers */
 }
 
 .md-typeset .colored-amt > .admonition-title::before,
 .md-typeset .colored-amt > summary::before {
-  background-color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color--auto);
   -webkit-mask-image: var(--md-admonition-icon--colored-amt);
   mask-image: var(--md-admonition-icon--colored-amt);
-}
-
-[data-md-color-scheme="default"] .md-typeset .admonition.colored-amt,
-[data-md-color-scheme="default"] .md-typeset details.colored-amt {
-  border-color: var(--md-primary-fg-color--light);
-}
-
-[data-md-color-scheme="default"] .md-typeset .colored-amt > .admonition-title,
-[data-md-color-scheme="default"] .md-typeset .colored-amt > summary {
-  background-color: rgb(from var(--md-primary-fg-color--light) r g b / 0.1);
-}
-
-[data-md-color-scheme="default"]
-  .md-typeset
-  .colored-amt
-  > .admonition-title::before,
-[data-md-color-scheme="default"] .md-typeset .colored-amt > summary::before {
-  background-color: var(--md-primary-fg-color--light);
-}
-
-[data-md-color-scheme="slate"] .md-typeset .admonition.colored-amt,
-[data-md-color-scheme="slate"] .md-typeset details.colored-amt {
-  border-color: var(--md-primary-fg-color--dark);
-}
-
-[data-md-color-scheme="slate"] .md-typeset .colored-amt > .admonition-title,
-[data-md-color-scheme="slate"] .md-typeset .colored-amt > summary {
-  background-color: rgb(from var(--md-primary-fg-color--dark) r g b / 0.1);
-}
-
-[data-md-color-scheme="slate"]
-  .md-typeset
-  .colored-amt
-  > .admonition-title::before,
-[data-md-color-scheme="slate"] .md-typeset .colored-amt > summary::before {
-  background-color: var(--md-primary-fg-color--dark);
 }
