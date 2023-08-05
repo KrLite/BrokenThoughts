@@ -1,6 +1,12 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # 一些可有可无的故事
 
-!!! quote ""
+!!! quote "&emsp;"
 
     <i>
       世界好小，我用两只脚就能走遍。

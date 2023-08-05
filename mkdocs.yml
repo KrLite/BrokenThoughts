@@ -64,10 +64,10 @@ theme:
     - content.tabs.link
     - content.tooltips
     # - header.autohide
-    - navigation.expand
+    # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    # - navigation.instant # Do not activate. Will break markdown math renderer.
+    # - navigation.instant
     - navigation.prune
     - navigation.sections
     - navigation.tabs
@@ -81,26 +81,32 @@ theme:
     - toc.integrate
 
 # Repository
-repo_url: https://github.com/KrLite/BrokenThoughts/
+repo_url: https://github.com/KrLite/BrokenThoughts
 repo_name: KrLite/BrokenThoughts
+edit_uri: edit/main/docs/
 
 # Copyright
 copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
 # Customization
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML' # Markdown math resolver
+  - stylesheets/js/katex.js # Markdown math resolver
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
 
 extra_css:
-  - 'stylesheets/css/extra.css?v=14' # Optimize general appearances
-  - 'stylesheets/css/colors.css?v=14' # Control global colors
-  - 'stylesheets/css/font.css?v=14' # Change the fonts
-  - 'stylesheets/css/colored_headings.css?v=14' # Color the headings
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+  - stylesheets/css/extra.css # Optimize general appearances
+  - stylesheets/css/colors.css # Control global colors
+  - stylesheets/css/font.css # Change the fonts
+  - stylesheets/css/colored_headings.css # Color the headings
 
 # Plugins
 plugins:
   - search
   - mermaid2
+  - git-revision-date-localized:
+      enable_creation_date: true
 
 # Extensions
 markdown_extensions:

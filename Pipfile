@@ -8,6 +8,7 @@ mkdocs = "*"
 mkdocs-pymdownx-material-extras = "*"
 mkdocs-mermaid2-plugin = "*"
 mkdocs-material = "==9.2.0b0"
+mkdocs-git-revision-date-localized-plugin = "*"
 
 [dev-packages]
 
