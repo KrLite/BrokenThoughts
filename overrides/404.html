@@ -1,15 +1,24 @@
 {% extends "main.html" %} {% block content %}
 <style>
-  /* Hide sidebar */
-  .md-sidebar--primary {
-    display: none;
+  .container {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container h3 {
+    opacity: .5;
+    text-align: center;
   }
 </style>
 
-<div align="center">
-  <h4 align="center">你寻找的页面在幻想乡</h4>
-  <a href="/">
-	<code>返回主页</code>
-  </a>
+<div class="container">
+  <h3>你要寻找的页面在幻想乡</h3>
 </div>
 {% endblock %}
