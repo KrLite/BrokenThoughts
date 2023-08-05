@@ -33,7 +33,7 @@ theme:
   favicon: assets/favicon.png
   palette:
     # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
+    - media: '(prefers-color-scheme: light)'
       scheme: default
       primary: custom
       accent: custom
@@ -41,7 +41,7 @@ theme:
         icon: material/octagram
         name: 切换至暗色模式
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
+    - media: '(prefers-color-scheme: dark)'
       scheme: slate
       primary: custom
       accent: custom
@@ -92,16 +92,17 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
 # Customization
 extra_javascript:
-  - stylesheets/js/mathjax.js # Markdown math resolver
+  - javascripts/mathjax.js # Markdown math resolver
+  - javascripts/dark_mode.js # Auto dark mode
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
-  - stylesheets/css/extra.css # Optimize general appearances
-  - stylesheets/css/colors.css # Control global colors
-  - stylesheets/css/font.css # Change the fonts
-  - stylesheets/css/colored_headings.css # Color the headings
+  - stylesheets/extra.css # Optimize general appearances
+  - stylesheets/colors.css # Control global colors
+  - stylesheets/font.css # Change the fonts
+  - stylesheets/colored_headings.css # Color the headings
 
 # Plugins
 plugins:
@@ -118,7 +119,7 @@ markdown_extensions:
   - md_in_html
   - meta
   - toc:
-      permalink: ""
+      permalink: ''
       slugify: !!python/name:pymdownx.slugs.uslugify
   - pymdownx.arithmatex:
       generic: true

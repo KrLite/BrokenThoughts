@@ -3,6 +3,13 @@ CSS file to optimize general appearances.
 By KrLite(https://github.com/KrLite).
  */
 
+:root {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+
 /* Code */
 code {
   border-radius: 0.35em !important;
