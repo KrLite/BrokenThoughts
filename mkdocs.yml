@@ -68,7 +68,7 @@ theme:
     # - navigation.expand
     - navigation.footer
     - navigation.indexes
-    - navigation.instant # Breaks math rendering
+    - navigation.instant
     # - navigation.prune
     - navigation.sections
     - navigation.tabs
