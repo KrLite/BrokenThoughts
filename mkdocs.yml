@@ -107,8 +107,6 @@ extra_css:
 plugins:
   - search
   - mermaid2
-  - git-revision-date-localized:
-      enable_creation_date: true
 
 # Extensions
 markdown_extensions:
