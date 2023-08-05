@@ -3,7 +3,7 @@ CSS file to optimize general appearances.
 By KrLite(https://github.com/KrLite).
  */
 
-/* Code border radius */
+/* Code */
 h1 code,
 h2 code,
 h3 code,
@@ -13,4 +13,12 @@ h6 code,
 p code,
 li code {
   border-radius: 0.35em !important;
+}
+
+/* Keyboard */
+
+.md-typeset kbd {
+  border-radius: 0.35em !important;
+  font-size: .8em !important;
+  padding: 0.1em 0.5em !important;
 }

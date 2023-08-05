@@ -7,7 +7,7 @@ strict: false
 nav:
   - 主页: index.md
   - 笔记:
-    - 杂谈: notebook/index.md
+    - notebook/index.md
     - 语言探索:
       - Java:
         - 类:
@@ -22,6 +22,7 @@ nav:
         - 基础排序算法集合: notebook/algorithms/sort/general.md
         - 堆排序: notebook/algorithms/sort/heap_sort.md
   - 涂鸦:
+    - doddles/index.md
     - 時の影: doddles/avatars/tokinokage.md
 
 # Theme
@@ -68,7 +69,7 @@ theme:
     - navigation.footer
     - navigation.indexes
     # - navigation.instant
-    - navigation.prune
+    # - navigation.prune
     - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -77,7 +78,7 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-    - toc.follow
+    # - toc.follow
     - toc.integrate
 
 # Repository
@@ -138,6 +139,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.snippets:
       check_paths: true
+      auto_append:
+        - includes/abbreviations.md
   - pymdownx.progressbar
   - pymdownx.smartsymbols
   - pymdownx.superfences:
