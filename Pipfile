@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 mkdocs = "*"
+mkdocs-material = "==9.2.0b0"
 mkdocs-pymdownx-material-extras = "*"
 mkdocs-mermaid2-plugin = "*"
-mkdocs-material = "==9.2.0b0"
+mkdocs-glightbox = "*"
 
 [dev-packages]
 
