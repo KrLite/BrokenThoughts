@@ -108,6 +108,7 @@ extra_css:
 plugins:
   - search
   - mermaid2
+  - glightbox
 
 # Extensions
 markdown_extensions:

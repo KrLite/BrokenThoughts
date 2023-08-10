@@ -13,16 +13,6 @@ hide:
 	transform: translateY(-1em);
   }
 
-  .divider {
-    height: 8em;
-    width: 100%;
-    background: linear-gradient(to right, transparent, 25%, var(--md-primary-fg-color--auto) 50%, 75%, transparent);
-    background-size: 100% 0.1em;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: .1;
-  }
-
   .colored-text {
 	color: var(--md-primary-fg-color--auto);
   }
@@ -72,14 +62,10 @@ hide:
     color: var(--md-primary-bg-color);
     display: block;
   }
-
-  .huge-space {
-	height: 300vh;
-  }
 </style>
 
 <section class="title">
-  <div class="container rellax fade blur" data-rellax-speed="-3" data-fade-offset="100" data-fade-duration-multiplier="0.3" data-blur-radius="32">
+  <div class="container">
     <span class="colored combined" style="-webkit-mask-image: url('assets/images/logo.png');">
       <img
           src="assets/images/logo.png"
@@ -105,14 +91,14 @@ hide:
       </i>
       <div align="right">
         <i>
-          <sub>——某不愿透露姓名的幻想乡妖怪</sub>
+          <sub class="translucent">——某不愿透露姓名的幻想乡妖怪</sub>
         </i>
       </div>
     </span>
 
 <div class="divider"></div>
 
-???+ colored-amt inline end "<span class="mdx-switch rellax" data-rellax-speed="5"><span class="colored-text">换个颜色！</span>&emsp;<button data-md-color-primary="--md-primary-fg-color--auto"><code>清除</code></button></span>"
+???+ colored-amt inline end "<span class="mdx-switch"><span class="colored-text">换个颜色！</span>&emsp;<button data-md-color-primary="--md-primary-fg-color--auto"><code>清除</code></button></span>"
 
     <div class="mdx-switch">
         <button data-md-color-primary="red"><code>red</code></button>
@@ -136,7 +122,6 @@ hide:
         <button data-md-color-primary="blue-grey"><code>blue grey</code></button>
         <button data-md-color-primary="black"><code>black</code></button>
         <button data-md-color-primary="white"><code>white</code></button>
-        <code>and more...</code>
     </div>
 
 <script>
@@ -147,64 +132,4 @@ hide:
 			document.body.setAttribute("data-md-color-primary", attr);
 		});
 	});
-</script>
-
-<div class="huge-space"></div>
-
-<script src="javascripts/rellax.min.js"></script>
-<script>
-	var rellax = new Rellax(".rellax");
-</script>
-
-<script>
-  function getElementFadingPercentage(element) {
-	const offset = element.getAttribute('data-fade-offset') || 0;
-	const duration = element.getAttribute('data-fade-duration') || window.innerHeight;
-	const multiplier = element.getAttribute('data-fade-duration-multiplier') || 1;
-
-    var rect = element.getBoundingClientRect();
-	var screenCssPixelRatio = (window.outerWidth - 8) / window.innerWidth;
-    return Math.min(Math.max(rect.top - offset, 0) / (duration * multiplier) * screenCssPixelRatio, 1);
-  }
-
-  function handleFade() {
-    var elements = document.getElementsByClassName('fade');
-
-    Array.from(elements).forEach((element) => {
-      element.style.opacity = getElementFadingPercentage(element);
-    });
-  }
-
-  function handleBlur() {
-    var elements = document.getElementsByClassName('blur');
-
-    Array.from(elements).forEach((element) => {
-	  const radius = Math.pow(1 - getElementFadingPercentage(element), 2) * (element.getAttribute('data-blur-radius') || 16);
-
-      element.style.filter = `blur(${radius}px)`;
-      element.style.webkitFilter = `blur(${radius}px)`;
-    });
-  }
-
-  function handleShift() {
-    var elements = document.getElementsByClassName('shift');
-
-    Array.from(elements).forEach((element) => {
-	  const duration = (1 - getElementFadingPercentage(element)) * (element.getAttribute('data-shift-duration') || window.innerHeight);
-	  const multiplier = element.getAttribute('data-shift-duration-multiplier') || 1;
-
-      element.style.transform = `translateY(${duration * multiplier}px)`;
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-	handleFade();
-	handleBlur();
-	handleShift();
-  });
-  window.addEventListener('scroll', function() {
-	handleFade();
-	handleBlur();
-	handleShift();
-  });
 </script>

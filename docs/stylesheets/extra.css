@@ -46,3 +46,20 @@ code {
   -webkit-mask-image: var(--md-admonition-icon--colored-amt);
   mask-image: var(--md-admonition-icon--colored-amt);
 }
+
+.divider {
+  height: 8em;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    25%,
+    var(--md-primary-fg-color--auto) 50%,
+    75%,
+    transparent
+  );
+  background-size: 100% 0.1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
