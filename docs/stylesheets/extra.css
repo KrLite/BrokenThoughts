@@ -1,8 +1,3 @@
-/*
-CSS file to optimize general appearances.
-By KrLite(https://github.com/KrLite).
- */
-
 :root {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -46,6 +41,8 @@ code {
   -webkit-mask-image: var(--md-admonition-icon--colored-amt);
   mask-image: var(--md-admonition-icon--colored-amt);
 }
+
+/* Divider */
 
 .divider {
   height: 8em;

@@ -2,9 +2,10 @@
 
 `JDK 5.0`
 
-注解[^注解]是Java中的一种特殊接口。类、方法、变量、参数和包等都可以被注解，并可以通过反射获取注解内容。
+^^注解^^ (1) 是Java中的一种特殊接口。类、方法、变量、参数和包等都可以被注解，并可以通过反射获取注解内容。
+{ .annotate }
 
-[^注解]: Annotation，又称标注。
+1.  Annotation，又称标注。
 
 ## 1&emsp;注解的定义
 
@@ -64,13 +65,13 @@ public class MyClass {
 
 ### 2.2&emsp;在反射中使用注解
 
-注解可以用于反射，如下是 [`test ↗`](/test) 示例的简单解释：
+注解可以用于反射，如下是 [`test ↗`](test) 示例的简单解释：
 
 #### 定义注解
 
-在 [`annotation ↗`](annotation/test/annotation) 包中定义了三个注解类： [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.java) 、 [`MethodInfo ↗`](annotation/test/annotation/MethodInfo.java) 和 [`Silent ↗`](annotation/test/annotation/Silent.java) 。
+在 [`annotation ↗`](test/annotation) 包中定义了三个注解类： [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.md) 、 [`MethodInfo ↗`](annotation/test/annotation/MethodInfo.md) 和 [`Silent ↗`](annotation/test/annotation/Silent.md) 。
 
-其中 [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.java) 用于标注字段，解释如下：
+其中 [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.md) 用于标注字段，解释如下：
 
 ```java
 @Target(ElementType.FIELD)             // 标注这个注解类只能用于字段。
@@ -81,9 +82,9 @@ public @interface FieldInfo {
 }
 ```
 
-其中 [`MethodInfo ↗`](annotation/test/annotation/MethodInfo.java) 用于标注方法，其构造方式和 [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.java) 一样，不作解释。
+其中 [`MethodInfo ↗`](annotation/test/annotation/MethodInfo.md) 用于标注方法，其构造方式和 [`FieldInfo ↗`](annotation/test/annotation/FieldInfo.md) 一样，不作解释。
 
-其中 [`Silent ↗`](annotation/test/annotation/Silent.java) 较为特殊，既可以标注方法，也可以标注字段。解释如下：
+其中 [`Silent ↗`](annotation/test/annotation/Silent.md) 较为特殊，既可以标注方法，也可以标注字段。解释如下：
 
 ```java
 @Target({    // 可以用数组标注多个类型属性。
@@ -117,7 +118,7 @@ public @Silent void method() {
 
 #### 使用注解
 
-接下来，让我们来分析 [`Test ↗`](annotation/test/Test.java) 类中的代码：
+接下来，让我们来分析 [`Test ↗`](annotation/test/Test.md) 类中的代码：
 
 首先，创建一个 `TestObj` 类，并在其中写入一些方法和注解。
 
@@ -182,7 +183,7 @@ public class Test {
 }
 ```
 
-[`流式处理 ↗`](/notebook/java/stream) [`Lambda 表达式 ↗`](/notebook/java/lambda)
+[`流式处理 ↗`](stream.md) [`Lambda 表达式 ↗`](lambda.md)
 
 在 `iteratorAnnotations` 方法中，我们对方法或字段进行遍历，然后获取其注解，最后进行解析。
 

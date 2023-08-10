@@ -1,6 +1,6 @@
 # 基础排序算法集合
 
-[`↗ 代码实现`](general/general.py)
+[`↗ 代码实现`](general/general.md)
 
 ## 选择排序 `Selection Sort`
 

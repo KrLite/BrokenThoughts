@@ -1,7 +1,3 @@
-/*
-CSS file to control global colors
- */
-
 :root {
   --custom-primary-color: rgb(0, 128, 128);
   --custom-secondary-color: rgb(64, 244, 208);
@@ -12,17 +8,14 @@ CSS file to control global colors
 
 :root {
   --md-primary-fg-color--auto: var(--md-primary-fg-color);
-  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color);
 }
 
 [data-md-color-scheme="default"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--light);
-  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color--dark);
 }
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--dark);
-  --md-primary-fg-color--auto-reversed: var(--md-primary-fg-color--light);
 }
 
 :root {
@@ -59,4 +52,26 @@ CSS file to control global colors
   opacity: 0;
   width: auto;
   display: block;
+}
+
+/* Color scheme switching animation */
+
+@media screen {
+  [data-md-color-switching] *,
+  [data-md-color-switching] :after,
+  [data-md-color-switching] :before {
+    transition-duration: 0.5s !important;
+    transition-delay: 0.1s !important;
+  }
+}
+
+html,
+body {
+  -webkit-transition: background-color 0.5s ease 0.1s !important;
+  transition: background-color 0.5s ease 0.1s !important;
+}
+
+.md-nav__container {
+  -webkit-transition: background-color 0.5s ease 0.1s, box-shadow 0.5s ease 0.1s !important;
+  transition: background-color 0.5s ease 0.1s, box-shadow 0.5s ease 0.1s !important;
 }

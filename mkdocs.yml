@@ -30,7 +30,7 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
-  favicon: assets/favicon.png
+  favicon: assets/favicon.ico
   palette:
     # Palette toggle for light mode
     - media: '(prefers-color-scheme: light)'
@@ -102,13 +102,12 @@ extra_css:
   - stylesheets/extra.css # Optimize general appearances
   - stylesheets/colors.css # Control global colors
   - stylesheets/font.css # Change the fonts
-  - stylesheets/colored_headings.css # Color the headings
+  - stylesheets/headings.css # Modify the headings
 
 # Plugins
 plugins:
   - search
   - mermaid2
-  - glightbox
 
 # Extensions
 markdown_extensions:

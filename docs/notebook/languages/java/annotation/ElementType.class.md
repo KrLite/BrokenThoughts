@@ -1,8 +1,14 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 ```java
 package java.lang.annotation;
 ```
 
-# ElementType.class
+# `ElementType.class`
 
 `ElementType.class`是一个枚举类，存储了用于定义[注解 ↗](../annotation.md)类型属性的枚举常量。
 
