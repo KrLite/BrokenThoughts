@@ -25,30 +25,23 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v3
-
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
           cache: pipenv
-
       - name: Install Python dependencies
         run: |
           curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python3
           pipenv install --ignore-pipfile
-
       - name: Build mkdocs
         run: pipenv run mkdocs build -v
-
       - name: Setup pages
         uses: actions/configure-pages@v3
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: |
-            site
-
+          path: site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
