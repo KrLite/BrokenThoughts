@@ -6,6 +6,7 @@ strict: false
 # Contents
 nav:
   - 主页: index.md
+  - 测试: test.md
   - 笔记:
     - notebook/index.md
     - 语言探索:
@@ -94,6 +95,7 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 extra_javascript:
   - javascripts/mathjax.js # Markdown math resolver
   - javascripts/dark_mode.js # Auto dark mode
+  - javascripts/music_player.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -103,6 +105,7 @@ extra_css:
   - stylesheets/colors.css # Control global colors
   - stylesheets/font.css # Change the fonts
   - stylesheets/headings.css # Modify the headings
+  - stylesheets/music_player.css
 
 # Plugins
 plugins:
