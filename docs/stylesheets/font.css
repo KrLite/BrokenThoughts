@@ -14,19 +14,19 @@
 @font-face {
   font-family: "Oppo Sans";
   src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-M.ttf");
-  font-weight: normal;
+  font-weight: 450;
 }
 
 @font-face {
   font-family: "Oppo Sans";
   src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-B.ttf");
-  font-weight: bold;
+  font-weight: 650;
 }
 
 @font-face {
   font-family: "Oppo Sans";
   src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-H.ttf");
-  font-weight: 900;
+  font-weight: 850;
 }
 
 :root {

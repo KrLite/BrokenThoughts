@@ -1,23 +1,73 @@
-const playBtn = document.querySelector(".music-player-btn__play");
-const prevBtn = document.querySelector(".music-player-btn__prev");
-const nextBtn = document.querySelector(".music-player-btn__next");
+const musicPlayers = document.querySelectorAll(".music-player");
 
-playBtn.addEventListener("click", () => {
-  playBtn.classList.toggle("pause");
-});
+for (let i = 0; i < musicPlayers.length; i++) {
+  const musicPlayer = musicPlayers[i];
+  const music = musicPlayer.querySelector("audio");
+  const playBtn = musicPlayer.querySelector(".music-player-btn__play");
+  const seekBar = musicPlayer.querySelector(".music-player__seek-bar");
+  const time = document.querySelector(".music-player__time");
+  const cover = document.querySelector(".music-player__disk");
 
-prevBtn.addEventListener("click", function () {
-  prevBtn.classList.add("switch-music");
+  const formatTime = (time) => {
+    let min = Math.floor(time / 60);
+    if (min < 10) {
+      min = `0${min}`;
+    }
+    let sec = Math.floor(time % 60);
+    if (sec < 10) {
+      sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+  };
 
-  prevBtn.addEventListener("animationend", function () {
-    prevBtn.classList.remove("switch-music");
+  seekBar.value = 0;
+  seekBar.max = music.duration;
+
+  playBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      playBtn.classList.remove("pause");
+    } else {
+      music.pause();
+      playBtn.classList.add("pause");
+    }
   });
-});
 
-nextBtn.addEventListener("click", function () {
-  nextBtn.classList.add("switch-music");
-
-  nextBtn.addEventListener("animationend", function () {
-    nextBtn.classList.remove("switch-music");
+  music.addEventListener("timeupdate", () => {
+    if (seekBar.classList.contains("active") === false) {
+      seekBar.value = music.currentTime;
+      time.innerHTML = `<code>
+	${formatTime(music.currentTime)} / ${formatTime(music.duration)}
+	</code>`;
+    }
   });
-});
+
+  seekBar.addEventListener("input", () => {
+    time.innerHTML = `<code>
+	${formatTime(seekBar.value)} / ${formatTime(music.duration)}
+	</code>`;
+  });
+
+  seekBar.addEventListener("change", () => {
+    music.currentTime = seekBar.value;
+  });
+
+  seekBar.addEventListener("mousedown", () => {
+    seekBar.classList.add("active");
+  });
+
+  seekBar.addEventListener("mouseup", () => {
+    seekBar.classList.remove("active");
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (music.paused) {
+      playBtn.classList.add("pause");
+    } else {
+      playBtn.classList.remove("pause");
+    }
+    time.innerHTML = `<code>
+	${formatTime(music.currentTime)} / ${formatTime(music.duration)}
+	</code>`;
+  });
+}
