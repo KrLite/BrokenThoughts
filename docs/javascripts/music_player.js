@@ -6,7 +6,6 @@ for (let i = 0; i < musicPlayers.length; i++) {
   const playBtn = musicPlayer.querySelector(".music-player-btn__play");
   const seekBar = musicPlayer.querySelector(".music-player__seek-bar");
   const time = document.querySelector(".music-player__time");
-  const cover = document.querySelector(".music-player__disk");
 
   const formatTime = (time) => {
     let min = Math.floor(time / 60);
