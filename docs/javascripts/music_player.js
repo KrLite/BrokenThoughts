@@ -1,4 +1,4 @@
-const musicPlayers = document.querySelectorAll(".music-player");
+var musicPlayers = document.querySelectorAll(".music-player");
 
 for (let i = 0; i < musicPlayers.length; i++) {
   const musicPlayer = musicPlayers[i];
@@ -27,12 +27,16 @@ for (let i = 0; i < musicPlayers.length; i++) {
     } else {
       playBtn.classList.remove("pause");
     }
-	seekBar.max = music.duration;
+    seekBar.max = music.duration;
     time.innerHTML = `<code>${formatTime(music.duration)}</code>`;
   });
 
   playBtn.addEventListener("click", () => {
-    if (music.paused) {
+	if (music.ended) {
+		music.currentTime = 0;
+	}
+
+    if (music.paused || music.ended) {
       music.play();
       playBtn.classList.remove("pause");
     } else {
@@ -66,5 +70,9 @@ for (let i = 0; i < musicPlayers.length; i++) {
 
   seekBar.addEventListener("mouseup", () => {
     seekBar.classList.remove("active");
+  });
+
+  music.addEventListener("ended", () => {
+	playBtn.classList.add("pause");
   });
 }

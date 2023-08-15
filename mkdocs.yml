@@ -95,7 +95,6 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 extra_javascript:
   - javascripts/mathjax.js # Markdown math resolver
   - javascripts/dark_mode.js # Auto dark mode
-  - javascripts/music_player.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
