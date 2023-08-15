@@ -17,8 +17,8 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
 
   setInterval(() => {
     diskRotationDelta += (diskRotationDeltaTarget - diskRotationDelta) * 0.04;
-	diskRotation += diskRotationDelta * diskRotationSpeed;
-	diskRotation = diskRotation % 360;
+    diskRotation += diskRotationDelta * diskRotationSpeed;
+    diskRotation = diskRotation % 360;
     disk.style.transform = `rotate(${diskRotation}deg)`;
   }, 1000 / 60);
 
@@ -34,6 +34,19 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
     return `${min}:${sec}`;
   };
 
+  const formatTimeHTML = (time) => {
+    var media = window.matchMedia("(max-width: 959px)");
+    var timeHTML = `<code>${formatTime(time)}`;
+    if (!media.matches) {
+      timeHTML += ` / ${formatTime(music.duration)}`;
+    }
+    return timeHTML + "</code>";
+  };
+
+  window.onresize = () => {
+    time.innerHTML = formatTimeHTML(music.currentTime);
+  };
+
   seekBar.value = 0;
   volumeBar.value = 87;
   volumeBar.max = 100;
@@ -41,10 +54,10 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
   music.addEventListener("canplaythrough", () => {
     if (music.paused) {
       playBtn.classList.add("pause");
-	  diskRotationDeltaTarget = 0;
+      diskRotationDeltaTarget = 0;
     } else {
       playBtn.classList.remove("pause");
-	  diskRotationDeltaTarget = 1;
+      diskRotationDeltaTarget = 1;
     }
     seekBar.max = music.duration;
     music.volume = volumeBar.value / 100;
@@ -53,12 +66,12 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
 
   music.addEventListener("play", () => {
     disk.classList.add("playing");
-	diskRotationDeltaTarget = 1;
+    diskRotationDeltaTarget = 1;
   });
 
   music.addEventListener("pause", () => {
     disk.classList.remove("playing");
-	diskRotationDeltaTarget = 0;
+    diskRotationDeltaTarget = 0;
   });
 
   playBtn.addEventListener("click", () => {
@@ -69,7 +82,7 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
     if (music.paused || music.ended) {
       music.play();
       playBtn.classList.remove("pause");
-	  diskRotationDelta
+      diskRotationDelta;
     } else {
       music.pause();
       playBtn.classList.add("pause");
@@ -79,9 +92,7 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
   music.addEventListener("timeupdate", () => {
     if (seekBar.classList.contains("active") === false) {
       seekBar.value = music.currentTime;
-      time.innerHTML = `<code>
-	${formatTime(music.currentTime)} / ${formatTime(music.duration)}
-	</code>`;
+      time.innerHTML = formatTimeHTML(music.currentTime);
     }
   });
 
@@ -90,9 +101,7 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
   }, 100);
 
   seekBar.addEventListener("input", () => {
-    time.innerHTML = `<code>
-	${formatTime(seekBar.value)} / ${formatTime(music.duration)}
-	</code>`;
+    time.innerHTML = formatTimeHTML(seekBar.value);
   });
 
   seekBar.addEventListener("change", () => {

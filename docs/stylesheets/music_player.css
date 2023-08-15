@@ -105,13 +105,13 @@
 }
 
 .music-player__inner-container-main {
-  max-width: calc(100% - 180px);
+  width: calc(100% - 180px);
   flex: 1;
 }
 
 @media (max-width: 959px) {
   .music-player__inner-container-main {
-    max-width: 100%;
+    width: 100%;
     flex: 1;
   }
 }
@@ -319,8 +319,8 @@
 
 @media (max-width: 959px) {
   .music-player__disk {
-    width: 200px;
-    height: 200px;
+    width: 230px;
+    height: 230px;
     margin-right: 0;
     margin-bottom: 3em;
   }
