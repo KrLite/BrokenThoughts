@@ -8,14 +8,17 @@
 
 :root {
   --md-primary-fg-color--auto: var(--md-primary-fg-color);
+  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent);
 }
 
 [data-md-color-scheme="default"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--light);
+  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent--light);
 }
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--dark);
+  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent--dark);
 }
 
 :root {
@@ -23,6 +26,10 @@
   --md-primary-fg-color: var(--custom-primary-color);
   --md-primary-fg-color--light: var(--custom-primary-color);
   --md-primary-fg-color--dark: var(--custom-secondary-color);
+
+  --md-primary-fg-color--transparent: var(--custom-primary-color--transparent);
+  --md-primary-fg-color--transparent--light: var(--custom-primary-color--transparent);
+  --md-primary-fg-color--transparent--dark: var(--custom-secondary-color--transparent);
 
   --md-accent-fg-color: var(--custom-primary-accent-color);
   --md-accent-fg-color--transparent: var(--custom-primary-color--transparent);

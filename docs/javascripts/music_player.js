@@ -21,7 +21,16 @@ for (let i = 0; i < musicPlayers.length; i++) {
   };
 
   seekBar.value = 0;
-  seekBar.max = music.duration;
+
+  music.addEventListener("canplaythrough", () => {
+    if (music.paused) {
+      playBtn.classList.add("pause");
+    } else {
+      playBtn.classList.remove("pause");
+    }
+	seekBar.max = music.duration;
+    time.innerHTML = `<code>${formatTime(music.duration)}</code>`;
+  });
 
   playBtn.addEventListener("click", () => {
     if (music.paused) {
@@ -58,16 +67,5 @@ for (let i = 0; i < musicPlayers.length; i++) {
 
   seekBar.addEventListener("mouseup", () => {
     seekBar.classList.remove("active");
-  });
-
-  document.addEventListener("DOMContentLoaded", () => {
-    if (music.paused) {
-      playBtn.classList.add("pause");
-    } else {
-      playBtn.classList.remove("pause");
-    }
-    time.innerHTML = `<code>
-	${formatTime(music.currentTime)} / ${formatTime(music.duration)}
-	</code>`;
   });
 }
