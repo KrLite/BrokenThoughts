@@ -401,7 +401,7 @@
 
 /* Controls */
 .music-player__controls {
-  margin-left: 1em;
+  margin-left: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
