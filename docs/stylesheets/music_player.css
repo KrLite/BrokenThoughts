@@ -238,7 +238,7 @@
   background-color: transparent !important;
   font-size: 20px !important;
   font-weight: 700 !important;
-  text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  /*text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);*/
   white-space: nowrap;
   padding: 0.1em 0.4em;
   transform: translateY(-0.1em);
@@ -440,7 +440,7 @@
   height: 60px;
   cursor: pointer;
   border: none;
-  background: radial-gradient(circle, var(--shadow) 0%, transparent 45%);
+  /*background: radial-gradient(circle, var(--shadow) 0%, transparent 45%);*/
   transition: all 0.2s ease;
 }
 
