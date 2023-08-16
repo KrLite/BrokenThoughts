@@ -219,6 +219,7 @@
   background-color: transparent !important;
   font-size: 20px !important;
   font-weight: 700 !important;
+  white-space: nowrap;
   padding: 0.1em 0.4em;
   transform: translateY(-0.1em);
   margin: 0;
