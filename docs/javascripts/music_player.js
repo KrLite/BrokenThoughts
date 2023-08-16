@@ -1,4 +1,5 @@
 var musicPlayers = document.querySelectorAll(".music-player");
+var playing = undefined;
 
 Array.from(musicPlayers).forEach(function (musicPlayer) {
   const music = musicPlayer.querySelector("audio");
@@ -9,6 +10,9 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
   const volume = musicPlayer.querySelector(".music-player__volume");
   const disk = musicPlayer.querySelector(".music-player__disk");
   const shifts = musicPlayer.querySelectorAll(".music-player__shift");
+  const titleBr = musicPlayer.querySelector("#music-player__title-br");
+
+  const media = window.matchMedia("(max-width: 959px)");
 
   var diskRotation = 0;
   var diskRotationDelta = 0;
@@ -35,7 +39,6 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
   };
 
   const formatTimeHTML = (time) => {
-    var media = window.matchMedia("(max-width: 959px)");
     var timeHTML = `<code>${formatTime(time)}`;
     if (!media.matches) {
       timeHTML += ` / ${formatTime(music.duration)}`;
@@ -43,9 +46,21 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
     return timeHTML + "</code>";
   };
 
-  window.onresize = () => {
-    time.innerHTML = formatTimeHTML(music.currentTime);
+  const updateTitleBr = () => {
+    console.log(media.matches);
+    if (media.matches) {
+      titleBr.style.display = "block";
+    } else {
+      titleBr.style.display = "none";
+    }
   };
+
+  updateTitleBr();
+
+  window.addEventListener("resize", () => {
+    time.innerHTML = formatTimeHTML(music.currentTime);
+    updateTitleBr();
+  });
 
   seekBar.value = 0;
   volumeBar.value = 87;
@@ -61,15 +76,21 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
     }
     seekBar.max = music.duration;
     music.volume = volumeBar.value / 100;
-    time.innerHTML = `<code>${formatTime(music.duration)}</code>`;
+    time.innerHTML = formatTimeHTML(music.currentTime);
   });
 
   music.addEventListener("play", () => {
+    playing = music;
+    playBtn.classList.remove("pause");
     disk.classList.add("playing");
     diskRotationDeltaTarget = 1;
   });
 
   music.addEventListener("pause", () => {
+    if (playing === music) {
+      playing = undefined;
+    }
+    playBtn.classList.add("pause");
     disk.classList.remove("playing");
     diskRotationDeltaTarget = 0;
   });
@@ -81,15 +102,17 @@ Array.from(musicPlayers).forEach(function (musicPlayer) {
 
     if (music.paused || music.ended) {
       music.play();
-      playBtn.classList.remove("pause");
       diskRotationDelta;
     } else {
       music.pause();
-      playBtn.classList.add("pause");
     }
   });
 
   music.addEventListener("timeupdate", () => {
+    if (playing !== music) {
+      music.pause();
+    }
+
     if (seekBar.classList.contains("active") === false) {
       seekBar.value = music.currentTime;
       time.innerHTML = formatTimeHTML(music.currentTime);
