@@ -6,19 +6,6 @@ hide:
 
 # 试试这个！
 
-<style>
-	.bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-	}
-</style>
-
-<img class="bg" src="https://images.unsplash.com/photo-1635352073050-23999f4022e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80" />
-
 <section class="music-player">
 <audio src="../assets/music/avid/6d9bfe7c4a2e7decbc9e171779b91c5f.mp3" id="audio"></audio>
 <div class="music-player__container-main music-player__padding-around" style="--music-fg-color--light: rgba(128, 23, 66, 1);--music-fg-color--dark: rgba(255, 108, 197, 1);--music-bg-color--light: rgba(128, 23, 66, 0.3);--music-bg-color--dark: rgba(255, 108, 197, 0.3);">
