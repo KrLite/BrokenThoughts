@@ -1,31 +1,31 @@
 /* Custom font family */
 @font-face {
   font-family: "Oppo Sans";
-  src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-L.ttf");
+  src: url("../assets/fonts/OPPOSans-L.ttf");
   font-weight: 100;
 }
 
 @font-face {
   font-family: "Oppo Sans";
-  src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-R.ttf");
+  src: url("../assets/fonts/OPPOSans-R.ttf");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Oppo Sans";
-  src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-M.ttf");
+  src: url("../assets/fonts/OPPOSans-M.ttf");
   font-weight: 450;
 }
 
 @font-face {
   font-family: "Oppo Sans";
-  src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-B.ttf");
+  src: url("../assets/fonts/OPPOSans-B.ttf");
   font-weight: 650;
 }
 
 @font-face {
   font-family: "Oppo Sans";
-  src: url("https://github.com/KrLite/BrokenThoughts/raw/a7ad9881980e48b963a1c0fb069df4750cf0789c/font/OPPOSans-H.ttf");
+  src: url("../assets/fonts/OPPOSans-H.ttf");
   font-weight: 850;
 }
 
