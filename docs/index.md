@@ -10,7 +10,7 @@ hide:
   }
 
   .sink {
-	transform: translateY(-1em);
+	transform: translateY(-1.5em);
   }
 
   .colored-text {
