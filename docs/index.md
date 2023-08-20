@@ -5,8 +5,10 @@ hide:
 ---
 
 <style>
-  .translucent {
-    opacity: .5;
+  .blockquote__translucent {
+	opacity: 0.35;
+    color: var(--md-primary-fg-color--auto) !important;
+	border-left: 0.2rem solid var(--md-primary-fg-color--auto) !important;
   }
 
   .sink {
@@ -74,7 +76,7 @@ hide:
     </span>
     <div class="content-flex">
       <h1>一些可有可无的故事</h1>
-      <blockquote class="translucent sink">
+      <blockquote class="blockquote__translucent sink">
         曾经的你，也是这一副模样呢。
       </blockquote>
     </div>
