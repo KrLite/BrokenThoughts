@@ -30,9 +30,7 @@ code {
 
 .md-typeset .colored-amt > .admonition-title,
 .md-typeset .colored-amt > summary {
-  background-color: rgb(
-    from var(--md-primary-fg-color--auto) r g b / 0.1
-  ); /* Not yet supported by some browsers */
+	background-color: var(--md-primary-fg-color--transparent--auto);
 }
 
 .md-typeset .colored-amt > .admonition-title::before,
