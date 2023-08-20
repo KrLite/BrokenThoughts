@@ -69,7 +69,7 @@ hide:
     <span class="colored combined" style="-webkit-mask-image: url('assets/images/logo.png');">
       <img
           src="assets/images/logo.png"
-          alt="Material Perfection"
+          alt="一些可有可无的故事"
        />
     </span>
     <div class="content-flex">
