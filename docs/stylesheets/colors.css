@@ -82,3 +82,7 @@ body {
   -webkit-transition: background-color 0.5s ease 0.1s, box-shadow 0.5s ease 0.1s !important;
   transition: background-color 0.5s ease 0.1s, box-shadow 0.5s ease 0.1s !important;
 }
+
+.md-nav__link {
+  transition: background 0.5s ease 0.1s, box-shadow 0.5s ease 0.1s !important;
+}
