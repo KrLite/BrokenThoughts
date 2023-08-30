@@ -1,38 +1,37 @@
 :root {
-  --custom-primary-color: rgb(0, 128, 128);
-  --custom-secondary-color: rgb(64, 244, 208);
+  --custom-primary-color: rgb(36, 171, 128);
+  --custom-secondary-color: rgb(48, 241, 154);
 
-  --custom-primary-color--transparent: rgba(0, 128, 128, 0.1);
-  --custom-secondary-color--transparent: rgba(64, 244, 208, 0.1);
+  --custom-primary-color--t: rgba(36, 171, 128, 0.2);
+  --custom-secondary-color--t: rgba(48, 241, 154, 0.2);
+}
+
+[data-md-color-scheme="default"] *::selection {
+  background: var(--custom-primary-color--t);
+}
+
+[data-md-color-scheme="slate"] *::selection {
+  background: var(--custom-secondary-color--t);
 }
 
 :root {
   --md-primary-fg-color--auto: var(--md-primary-fg-color);
-  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent);
 }
 
 [data-md-color-scheme="default"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--light);
-  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent--light);
 }
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color--auto: var(--md-primary-fg-color--dark);
-  --md-primary-fg-color--transparent--auto: var(--md-primary-fg-color--transparent--dark);
 }
 
 :root {
-  /* Tips: Use #XXXXXX to define a hex color */
   --md-primary-fg-color: var(--custom-primary-color);
   --md-primary-fg-color--light: var(--custom-primary-color);
   --md-primary-fg-color--dark: var(--custom-secondary-color);
 
-  --md-primary-fg-color--transparent: var(--custom-primary-color--transparent);
-  --md-primary-fg-color--transparent--light: var(--custom-primary-color--transparent);
-  --md-primary-fg-color--transparent--dark: var(--custom-secondary-color--transparent);
-
   --md-accent-fg-color: var(--custom-primary-accent-color);
-  --md-accent-fg-color--transparent: var(--custom-primary-color--transparent);
 }
 
 [data-md-color-scheme="default"] {

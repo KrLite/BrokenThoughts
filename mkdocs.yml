@@ -6,7 +6,6 @@ strict: false
 # Contents
 nav:
   - 主页: index.md
-  - 测试: test.md
   - 笔记:
     - notebook/index.md
     - 语言探索:
@@ -49,13 +48,10 @@ theme:
       toggle:
         icon: material/octagram-outline
         name: 切换至亮色模式
-  # Tips: Relative paths can navigate to svgs under path 'mkdocs-material/material/.icons'
   icon:
     logo: material/micro-sd
     repo: material/function
-  # Tips: currently, the text font is set under 'stylesheets/css/font.css'
   font:
-    # text: 'Source Sans'
     code: 'JetBrains Mono'
   features:
     - announce.dismiss
@@ -104,7 +100,6 @@ extra_css:
   - stylesheets/colors.css # Control global colors
   - stylesheets/font.css # Change the fonts
   - stylesheets/headings.css # Modify the headings
-  - stylesheets/music_player.css
 
 # Plugins
 plugins:
