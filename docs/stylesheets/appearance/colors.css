@@ -60,8 +60,6 @@
   display: block;
 }
 
-/* Color scheme switching animation */
-
 @media screen {
   [data-md-color-switching] *,
   [data-md-color-switching] :after,

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("oppo-sans/OPPOSans-L.ttf");
+  font-display: swap;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("oppo-sans/OPPOSans-R.ttf");
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("oppo-sans/OPPOSans-M.ttf");
+  font-display: swap;
+  font-weight: 450;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("oppo-sans/OPPOSans-B.ttf");
+  font-display: swap;
+  font-weight: 650;
+}
+
+@font-face {
+  font-family: "Oppo Sans";
+  src: url("oppo-sans/OPPOSans-H.ttf");
+  font-display: swap;
+  font-weight: 850;
+}

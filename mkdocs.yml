@@ -89,17 +89,19 @@ copyright: 'Copyright &copy; 2022 - 2023 KrLite'
 
 # Customization
 extra_javascript:
-  - javascripts/mathjax.js # Markdown math resolver
-  - javascripts/dark_mode.js # Auto dark mode
+  - javascripts/mathjax.js
+  - javascripts/dark_mode.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
-  - stylesheets/extra.css # Optimize general appearances
-  - stylesheets/colors.css # Control global colors
-  - stylesheets/font.css # Change the fonts
-  - stylesheets/headings.css # Modify the headings
+  - stylesheets/extra.css
+
+  - stylesheets/appearance/colors.css
+  - stylesheets/appearance/headings.css
+
+  - stylesheets/typography/index.css
 
 # Plugins
 plugins:
