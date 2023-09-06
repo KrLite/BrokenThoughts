@@ -1,45 +1,20 @@
 :root {
-  --custom-primary-color: rgb(36, 171, 128);
-  --custom-secondary-color: rgb(48, 241, 154);
+  --md-hue: 180;
 
-  --custom-primary-color--t: rgba(36, 171, 128, 0.2);
-  --custom-secondary-color--t: rgba(48, 241, 154, 0.2);
+  --md-primary-fg-color--t: hsla(var(--md-hue), 100%, 45%, 0.1);
 }
 
-[data-md-color-scheme="default"] *::selection {
-  background: var(--custom-primary-color--t);
+*::selection {
+  background: var(--md-primary-fg-color--t);
 }
 
-[data-md-color-scheme="slate"] *::selection {
-  background: var(--custom-secondary-color--t);
-}
-
-:root {
-  --md-primary-fg-color--auto: var(--md-primary-fg-color);
-}
-
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color--auto: var(--md-primary-fg-color--light);
-}
-
-[data-md-color-scheme="slate"] {
-  --md-primary-fg-color--auto: var(--md-primary-fg-color--dark);
-}
-
-:root {
-  --md-primary-fg-color: var(--custom-primary-color);
-  --md-primary-fg-color--light: var(--custom-primary-color);
-  --md-primary-fg-color--dark: var(--custom-secondary-color);
-
-  --md-accent-fg-color: var(--custom-primary-accent-color);
-}
-
-.md-typeset a:not(.footnote-ref, .footnote-backref, .md-content__button.md-icon) {
+.md-typeset
+  a:not(:has(> code), .footnote-ref, .footnote-backref, .md-content__button.md-icon) {
   color: var(--md-typeset-color);
   padding: 0 0.1em;
   background-image: linear-gradient(
-    var(--md-primary-fg-color--auto),
-    var(--md-primary-fg-color--auto)
+    var(--md-primary-fg-color),
+    var(--md-primary-fg-color)
   );
   background-position: 0.1em 100%;
   background-size: calc(100% - 0.2em) 0.2em;
@@ -47,25 +22,44 @@
   transition: all 0.2s ease;
 }
 
-.md-typeset a:not(.footnote-ref, .footnote-backref, .md-content__button.md-icon):hover {
+.md-typeset
+  a:not(:has(> code), .footnote-ref, .footnote-backref, .md-content__button.md-icon):hover {
   color: var(--md-default-bg-color);
   background-position: 0% 100%;
   background-size: 100% 100%;
 }
 
 .md-typeset a:is(.footnote-ref, .footnote-backref) {
-  color: var(--md-primary-fg-color--auto);
+  color: var(--md-primary-fg-color);
 }
 
 .md-typeset a:is(.footnote-ref, .footnote-backref):hover {
   color: var(--md-typeset-color);
 }
 
+.md-typeset mark {
+  color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color--t);
+}
+
+.md-typeset :is(code, kbd, pre) {
+  font-variant-ligatures: normal;
+}
+
+.md-top:hover {
+  color: var(--md-default-fg-color);
+  background-color: var(--md-primary-fg-color);
+}
+
+[type="checkbox"]:checked + .task-list-indicator::before {
+	background-color: var(--md-primary-fg-color) !important;
+}
+
 /* Image color transformer */
 /* Credit: https://stackoverflow.com/a/76821538 */
 .colored {
   display: inline-block;
-  background-color: var(--md-primary-fg-color--auto);
+  background-color: var(--md-primary-fg-color);
   -webkit-mask-size: 95%;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;

@@ -29,6 +29,8 @@ _记忆这种东西，妨碍我活着。_
 
 ~~Strikethrough text~~
 
+<mark>Marked text</mark>
+
 H~2~O
 
 10^-11^
@@ -66,6 +68,11 @@ H~2~O
 ```python
 def hello_world():
     print("Hello, World!")
+
+def marked_method():
+	a = 100 ^ 2.0
+	b = 1 / a
+	print(b)
 ```
 
 Line text `inline code` line text

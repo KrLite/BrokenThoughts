@@ -4,7 +4,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--md-primary-fg-color--auto) !important;
+  color: var(--md-primary-fg-color) !important;
 }
 
 h1 code,
@@ -13,7 +13,7 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  color: var(--md-primary-fg-color--auto) !important;
+  color: var(--md-primary-fg-color) !important;
 }
 .md-typeset h1, h2, h3, h4, h5, h6 {
   text-transform: none !important;
