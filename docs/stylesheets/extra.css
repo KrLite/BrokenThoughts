@@ -9,6 +9,17 @@ code {
   border-radius: 0.35em !important;
 }
 
+pre > code {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+td.linenos {
+  border-radius: 0.35em !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 .md-typeset kbd {
   border-radius: 0.35em !important;
   font-size: 0.8em !important;
@@ -17,6 +28,7 @@ code {
 
 :root {
   --md-text-font: "Apercu Pro", "Oppo Sans";
+  --md-code-font: "JetBrains Mono";
 }
 
 h1 {

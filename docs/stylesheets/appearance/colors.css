@@ -34,14 +34,31 @@
   --md-accent-fg-color: var(--custom-primary-accent-color);
 }
 
-[data-md-color-scheme="default"] {
-  --md-accent-fg-color: var(--md-primary-fg-color--dark);
-  --md-typeset-a-color: var(--md-primary-fg-color--light);
+.md-typeset a:not(.footnote-ref, .footnote-backref, .md-content__button.md-icon) {
+  color: var(--md-typeset-color);
+  padding: 0 0.1em;
+  background-image: linear-gradient(
+    var(--md-primary-fg-color--auto),
+    var(--md-primary-fg-color--auto)
+  );
+  background-position: 0.1em 100%;
+  background-size: calc(100% - 0.2em) 0.2em;
+  background-repeat: no-repeat;
+  transition: all 0.2s ease;
 }
 
-[data-md-color-scheme="slate"] {
-  --md-accent-fg-color: var(--md-primary-fg-color--light);
-  --md-typeset-a-color: var(--md-primary-fg-color--dark);
+.md-typeset a:not(.footnote-ref, .footnote-backref, .md-content__button.md-icon):hover {
+  color: var(--md-default-bg-color);
+  background-position: 0% 100%;
+  background-size: 100% 100%;
+}
+
+.md-typeset a:is(.footnote-ref, .footnote-backref) {
+  color: var(--md-primary-fg-color--auto);
+}
+
+.md-typeset a:is(.footnote-ref, .footnote-backref):hover {
+  color: var(--md-typeset-color);
 }
 
 /* Image color transformer */

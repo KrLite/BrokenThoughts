@@ -51,8 +51,6 @@ theme:
   icon:
     logo: material/micro-sd
     repo: material/function
-  font:
-    code: 'JetBrains Mono'
   features:
     - announce.dismiss
     - content.action.edit
