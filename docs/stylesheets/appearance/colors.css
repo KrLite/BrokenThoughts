@@ -47,7 +47,7 @@
 }
 
 .md-top:hover {
-  color: var(--md-default-fg-color);
+  color: var(--md-primary-bg-color);
   background-color: var(--md-primary-fg-color);
 }
 
