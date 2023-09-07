@@ -1,7 +1,15 @@
-:root {
-  --md-hue: 180;
+[data-md-color-scheme="default"] {
+  --md-hue: 52;
+  --md-primary-fg-color--t: hsla(var(--md-hue), 100%, 45%, 0.15);
+}
 
+[data-md-color-scheme="slate"] {
+  --md-hue: 180;
   --md-primary-fg-color--t: hsla(var(--md-hue), 100%, 45%, 0.1);
+}
+
+:root > * {
+  --md-code-hl-color: var(--md-primary-fg-color--t);
 }
 
 *::selection {
@@ -9,41 +17,101 @@
 }
 
 .md-typeset
-  a:not(:has(> code), .footnote-ref, .footnote-backref, .md-content__button.md-icon) {
-  color: var(--md-typeset-color);
-  padding: 0 0.1em;
-  background-image: linear-gradient(
-    var(--md-primary-fg-color),
-    var(--md-primary-fg-color)
-  );
-  background-position: 0.1em 100%;
-  background-size: calc(100% - 0.2em) 0.2em;
-  background-repeat: no-repeat;
-  transition: all 0.2s ease;
+  a:not(
+    :has(> code),
+    .headerlink,
+    .footnote-ref,
+    .footnote-backref,
+    .md-content__button.md-icon,
+    .md-annotation__index
+  ) {
+  color: var(--md-primary-fg-color);
+  padding: 0 0.25em;
+  position: relative;
+
+  &:hover {
+    color: var(--md-primary-fg-color);
+  }
+
+  &::after {
+    content: "";
+    background: var(--md-primary-fg-color--t);
+    position: absolute;
+    left: 0.5em;
+    bottom: -0.15em;
+    width: calc(100% - 0.2em);
+    height: calc(100% - 0.5em);
+    transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+    z-index: -1;
+  }
+
+  &:hover::after {
+    left: 0;
+    bottom: -0.1em;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .md-typeset
-  a:not(:has(> code), .footnote-ref, .footnote-backref, .md-content__button.md-icon):hover {
-  color: var(--md-default-bg-color);
-  background-position: 0% 100%;
-  background-size: 100% 100%;
+  mark
+  a:not(
+    :has(> code),
+    .headerlink,
+    .footnote-ref,
+    .footnote-backref,
+    .md-content__button.md-icon,
+    .md-annotation__index
+  ) {
+  &::after {
+    bottom: calc(-0.15em + 0.5em);
+    height: 0;
+  }
+
+  &:hover::after {
+    bottom: 0.5em;
+    height: calc(100% - 0.5em);
+  }
 }
 
 .md-typeset a:is(.footnote-ref, .footnote-backref) {
   color: var(--md-primary-fg-color);
+
+  &:hover {
+    color: var(--md-typeset-color);
+  }
 }
 
-.md-typeset a:is(.footnote-ref, .footnote-backref):hover {
-  color: var(--md-typeset-color);
+.md-typeset .md-copyright :is(a, mark) {
+  z-index: 1;
+
+  &::after {
+    z-index: 0;
+  }
 }
 
 .md-typeset mark {
-  color: var(--md-primary-fg-color);
-  background-color: var(--md-primary-fg-color--t);
+  position: relative;
+  background: none;
+
+  &::after {
+    content: "";
+    background: var(--md-primary-fg-color--t);
+    position: absolute;
+    left: 0.5em;
+    bottom: -0.15em;
+    width: calc(100% - 0.2em);
+    height: calc(100% - 0.5em);
+    z-index: -1;
+  }
 }
 
 .md-typeset :is(code, kbd, pre) {
   font-variant-ligatures: normal;
+}
+
+.md-typeset .md-content__button {
+  color: var(--md-default-fg-color--lightest);
 }
 
 .md-top:hover {
@@ -52,7 +120,7 @@
 }
 
 [type="checkbox"]:checked + .task-list-indicator::before {
-	background-color: var(--md-primary-fg-color) !important;
+  background-color: var(--md-primary-fg-color) !important;
 }
 
 /* Image color transformer */

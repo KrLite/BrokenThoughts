@@ -24,6 +24,7 @@ nav:
   - 涂鸦:
     - doddles/index.md
     - 時の影: doddles/avatars/tokinokage.md
+  - Markdown Cheatsheet: cheatsheet.md
 
 # Theme
 theme:
@@ -35,16 +36,16 @@ theme:
     # Palette toggle for light mode
     - media: '(prefers-color-scheme: light)'
       scheme: default
-      primary: teal
-      accent: teal
+      primary: amber
+      accent: amber
       toggle:
         icon: material/octagram
         name: 切换至暗色模式
     # Palette toggle for dark mode
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
-      primary: teal
-      accent: teal
+      primary: cyan
+      accent: cyan
       toggle:
         icon: material/octagram-outline
         name: 切换至亮色模式
@@ -128,8 +129,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
-  - pymdownx.highlight:
-      linenums: true
+  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink
