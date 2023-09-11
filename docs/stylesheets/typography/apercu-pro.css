@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Light.otf');
+  src: url('apercu-pro/Apercu-Pro-Light.otf');
   font-weight: 100;
   font-display: swap;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Light-Italic.otf');
+  src: url('apercu-pro/Apercu-Pro-Light-Italic.otf');
   font-weight: 100;
   font-display: swap;
   font-style: italic;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: yrl('apercu/Apercu-Pro-Regular.otf');
+  src: yrl('apercu-pro/Apercu-Pro-Regular.otf');
   font-weight: 250;
   font-display: swap;
   font-style: normal;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Italic.otf');
+  src: url('apercu-pro/Apercu-Pro-Italic.otf');
   font-weight: 250;
   font-display: swap;
   font-style: italic;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Medium.otf');
+  src: url('apercu-pro/Apercu-Pro-Medium.otf');
   font-weight: 450;
   font-display: swap;
   font-style: normal;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Medium-Italic.otf');
+  src: url('apercu-pro/Apercu-Pro-Medium-Italic.otf');
   font-weight: 450;
   font-display: swap;
   font-style: italic;
@@ -48,7 +48,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Bold.otf');
+  src: url('apercu-pro/Apercu-Pro-Bold.otf');
   font-weight: 750;
   font-display: swap;
   font-style: normal;
@@ -56,7 +56,7 @@
 
 @font-face {
   font-family: 'Apercu Pro';
-  src: url('apercu/Apercu-Pro-Bold-Italic.otf');
+  src: url('apercu-pro/Apercu-Pro-Bold-Italic.otf');
   font-weight: 750;
   font-display: swap;
   font-style: italic;
@@ -64,6 +64,6 @@
 
 @font-face {
   font-family: 'Apercu Pro Mono';
-  src: url('apercu/Apercu-Pro-Mono.otf');
+  src: url('apercu-pro/Apercu-Pro-Mono.otf');
   font-display: swap;
 }
